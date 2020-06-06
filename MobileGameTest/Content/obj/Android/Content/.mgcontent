@@ -52,11 +52,21 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/loadingScreen/VersusScreen.jpg</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/loadingScreen/VersusScreenBig.jpg</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/localizedMenuFont.spritefont</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/continueButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/goToBattleButtonBig.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/goToTasksButtonBig.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/lossScreenWithScore.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/victoryScreen.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/victoryScreenWithScore.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/woodPanelBig.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreature.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreaturePortrait.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/Cat1.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/catPortrait.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/dinasaur.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/dinoPortrait.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/drogo.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/drogoPortrait.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/FishKing.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/FishKingPortrait.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/campBackground.png</File>
@@ -71,6 +81,10 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopBackground.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopBackgroundNew.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopItemsBackground.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/armorBreakSkill.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/armorPenitrationSkill.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/dmgBonusIcon.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/healIcon.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/simpleAtttackIcon.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/simpleAtttackIconBig.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/simpleAtttackIconBigSaturated.png</File>
@@ -86,6 +100,20 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/swordSwingIconBigSaturated1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

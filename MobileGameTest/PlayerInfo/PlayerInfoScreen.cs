@@ -85,14 +85,14 @@ namespace MobileGameTest.PlayerInfo
 
             TalantPickButtons = new InvisibleButton[12];
             var i = 50;
-            var j = 500;
+            var j = 770;
             var ind = 0;
             foreach (var t in Player1.Instance.Deck)
             {
                 var b = new InvisibleButton(new Rectangle(i, j, 100, 96));
                 b.Click += DeckTalantClick;
                 TalantPickButtons[ind++] = b;
-                i = (i >= 430) ? 50 : i + 150;
+                i = (i >= 480) ? 50 : i + 180;
                 j = (i == 50) ? j + 150 : j;
             }
             MakeAddtalantButtons();
@@ -101,8 +101,8 @@ namespace MobileGameTest.PlayerInfo
         public override void Draw(GameTime gameTime)
         {
             game.spriteBatch.GraphicsDevice.Clear(Color.CornflowerBlue);
-            game.spriteBatch.Draw(DataManager.Instance.campBackgroundTxtr, new Vector2(0, -40));
-            game.spriteBatch.Draw(DataManager.Instance.shopItemsBackground, new Vector2(-5, 700));
+            game.spriteBatch.Draw(DataManager.Instance.campBackgroundTxtr, new Vector2(0, -40), scale: new Vector2(1.5f));
+            game.spriteBatch.Draw(DataManager.Instance.menuLowerPanel, new Vector2(-30, 700));
             var text = Player1.Instance.name + "\nHP " + Player1.Instance.MaxHP + "\nталантов собрано " + Player1.Instance.Collection.Count;
             game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, text, new Vector2(300, 128), Color.White);
             foreach (var e in components)
@@ -122,37 +122,37 @@ namespace MobileGameTest.PlayerInfo
                     break;
                 case (PlayerInfoTabs.Deck):
                     var i = 50;
-                    var j = 500;
+                    var j = 770;
                     foreach (var t in Player1.Instance.Deck)
                     {
                         game.spriteBatch.Draw(t.txtr, new Vector2(i, j));
-                        i = (i >= 430) ? 50 : i + 150;
+                        i = (i >= 480) ? 50 : i + 180;
                         j = (i == 50) ? j + 150 : j;
                     }
                     break;
                 case (PlayerInfoTabs.Collection):
                     var k = 90;
-                    var n = 500;
+                    var n = 770;
                     var index = 0;
                     foreach (var t in Player1.Instance.Collection)
                     {
                         game.spriteBatch.Draw(t.txtr, new Vector2(k, n));
                         game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, t.description, new Vector2(k + 104, n + 10), Color.White);
                         game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, Player1.Instance.Collection[index].multiplicity.ToString(), new Vector2(k - 30, n + 10), Color.White);
-                        n += 104;
+                        n += 150;
                         index++;
                     }
                     break;
                 case (PlayerInfoTabs.PickingTalant):
                     var l = 90;
-                    var m = 500;
+                    var m = 770;
                     var ind = 0;
                     foreach (var t in Player1.Instance.Collection)
                     {
                         game.spriteBatch.Draw(t.txtr, new Vector2(l, m));
                         game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, t.description, new Vector2(l + 104, m + 10), Color.White);
                         game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, NumberOfAvailableCopies(ind).ToString(), new Vector2(l - 30, m + 10), Color.White);
-                        m += 104;
+                        m += 150;
                         ind++;
                     }
                     break;
@@ -175,14 +175,14 @@ namespace MobileGameTest.PlayerInfo
         {
             AddTalantButtons = new InvisibleButton[Player1.Instance.Collection.Count];
             var k = 90;
-            var n = 500;
+            var n = 770;
             var ind = 0;
             foreach (var t in Player1.Instance.Collection)
             {
                 var b = new InvisibleButton(new Rectangle(k, n, 100, 96));
                 b.Click += AddButton;
                 AddTalantButtons[ind++] = b;
-                n += 104;
+                n += 150;
             }
         }
 

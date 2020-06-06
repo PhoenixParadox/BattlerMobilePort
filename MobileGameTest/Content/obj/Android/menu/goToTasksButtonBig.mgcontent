@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/menu/goToTasksButtonBig.png</SourceFile>
+  <SourceFile>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/goToTasksButtonBig.png</SourceFile>
   <SourceTime>2020-06-05T21:15:54.6141674+05:00</SourceTime>
-  <DestFile>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/bin/Android/menu/goToTasksButtonBig.xnb</DestFile>
-  <DestTime>2020-06-05T21:18:46.7595697+05:00</DestTime>
+  <DestFile>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/bin/Android/menu/goToTasksButtonBig.xnb</DestFile>
+  <DestTime>2020-06-06T22:41:44.5872984+05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T21:35:54+05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

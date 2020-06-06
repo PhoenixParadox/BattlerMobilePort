@@ -56,6 +56,10 @@ namespace MobileGameTest.Data
             gameEdit = gameData.Edit();
             #endregion
 
+
+            //CreateGameData();
+            //CreatePlayerData();
+
             try
             {
                 Load();
@@ -88,6 +92,13 @@ namespace MobileGameTest.Data
             GameData.Instance.baseDefAmount = 5;
             GameData.Instance.strongAtckDmg = 10;
             GameData.Instance.swordSwingMultiplicity = 2;
+
+            GameData.Instance.healMultiplicity = 2;
+            GameData.Instance.healAmount = 3;
+            GameData.Instance.armorBreakDmg = 5;
+            GameData.Instance.armorBreakMultiplicity = 4;
+            GameData.Instance.armorPenitrationDmg = 4;
+            GameData.Instance.armorPenitrationMultiplicity = 3;
         }
         public void CreateBaseCollection()
         {
@@ -129,6 +140,13 @@ namespace MobileGameTest.Data
             gameEdit.PutInt("baseDefAmount", GameData.Instance.baseDefAmount);
             gameEdit.PutInt("strongAtckDmg", GameData.Instance.strongAtckDmg);
             gameEdit.PutInt("swordSwingMultiplicity", GameData.Instance.swordSwingMultiplicity);
+
+            gameEdit.PutInt("healAmount", GameData.Instance.healAmount);
+            gameEdit.PutInt("healMultiplicity", GameData.Instance.healMultiplicity);
+            gameEdit.PutInt("armorBreakMultiplicity", GameData.Instance.armorBreakMultiplicity);
+            gameEdit.PutInt("armorBreakDmg", GameData.Instance.armorBreakDmg);
+            gameEdit.PutInt("armorPenitrationDmg", GameData.Instance.armorPenitrationDmg);
+            gameEdit.PutInt("armorPenitrationMultiplicity", GameData.Instance.armorPenitrationMultiplicity);
             gameEdit.Commit();
         }
         private void SavePlayer()
@@ -182,6 +200,13 @@ namespace MobileGameTest.Data
             GameData.Instance.baseDefAmount = gameData.GetInt("baseDefAmount", 5);
             GameData.Instance.strongAtckDmg = gameData.GetInt("strongAtckDmg", 10);
             GameData.Instance.swordSwingMultiplicity = gameData.GetInt("swordSwingMultiplicity", 2);
+
+            GameData.Instance.healMultiplicity = gameData.GetInt("healMultiplicity", 2);
+            GameData.Instance.healAmount = gameData.GetInt("healAmount", 3);
+            GameData.Instance.armorBreakDmg = gameData.GetInt("armorBreakDmg", 5);
+            GameData.Instance.armorBreakMultiplicity = gameData.GetInt("armorBreakMultiplicity", 4);
+            GameData.Instance.armorPenitrationDmg = gameData.GetInt("armorPenitrationDmg", 4);
+            GameData.Instance.armorPenitrationMultiplicity = gameData.GetInt("armorPenitrationMultiplicity", 3);
         }
         private void LoadPlayer()
         {
@@ -207,8 +232,8 @@ namespace MobileGameTest.Data
 
         public void LoadGameData()
         {
-            Skins = new Texture2D[2];
-            Portraits = new Texture2D[2];
+            Skins = new Texture2D[5];
+            Portraits = new Texture2D[5];
             LoadAssets();
 
             EmptyTalant.Instance.txtr = circleIcon;
@@ -270,6 +295,10 @@ namespace MobileGameTest.Data
         public Texture2D woodenBtn;
         public Texture2D menuBackground;
         public Texture2D menuLowerPanel;
+
+        public Texture2D victoryScreen;
+        public Texture2D continueButton;
+        public Texture2D lossScreen;
         #endregion
 
         #region progress bar
@@ -284,6 +313,11 @@ namespace MobileGameTest.Data
         public Texture2D baseAtck;
         public Texture2D baseDef;
         public Texture2D strongAtck;
+
+        public Texture2D armorPenitrationAtck;
+        public Texture2D armorBreakAtck;
+        public Texture2D heal;
+        public Texture2D dmgBonus;
         #endregion
 
         #region player
@@ -318,8 +352,10 @@ namespace MobileGameTest.Data
         public Texture2D battleUpperPanel;
         public Texture2D heartIcon;
         public Texture2D shieldIcon;
+
         public Texture2D botTxtr;
         public Texture2D botPortraitTxtr;
+
         public Texture2D circleIcon;
         public Texture2D portraitPanel;
         public Texture2D arenaBackground;
@@ -331,9 +367,7 @@ namespace MobileGameTest.Data
         #endregion
 
         private void LoadAssets()
-        {
-            //testFont = contentManager.Load<SpriteFont>("menu/localizedMenuFont");
-            
+        {            
             #region fonts
             menuFont = contentManager.Load<SpriteFont>("font1");
             font1 = contentManager.Load<SpriteFont>("File");
@@ -355,6 +389,10 @@ namespace MobileGameTest.Data
             woodenBtn = contentManager.Load<Texture2D>("buttons/woodenBtn192x84");
             menuBackground = contentManager.Load<Texture2D>("common/menuBackground");
             menuLowerPanel = contentManager.Load<Texture2D>("menu/woodPanelBig");
+
+            victoryScreen = contentManager.Load<Texture2D>("menu/victoryScreenWithScore");
+            continueButton = contentManager.Load<Texture2D>("menu/continueButton");
+            lossScreen = contentManager.Load<Texture2D>("menu/lossScreenWithScore");
             #endregion
 
             #region progress bar
@@ -376,12 +414,26 @@ namespace MobileGameTest.Data
             baseAtck = contentManager.Load<Texture2D>("TalantIcons/simpleAtttackIconBigSaturated1");
             baseDef = contentManager.Load<Texture2D>("TalantIcons/simpleDeffenceIconBigSaturated1");
             strongAtck = contentManager.Load<Texture2D>("TalantIcons/swordSwingIconBigSaturated1");
+
+            armorPenitrationAtck = contentManager.Load<Texture2D>("TalantIcons/armorPenitrationSkill");
+            heal = contentManager.Load<Texture2D>("TalantIcons/healIcon");
+            dmgBonus = contentManager.Load<Texture2D>("TalantIcons/dmgBonusIcon");
+            armorBreakAtck = contentManager.Load<Texture2D>("TalantIcons/armorBreakSkill");
             #endregion
             #region player
             Skins[0] = contentManager.Load<Texture2D>("Player/Cat1");
             Portraits[0] = contentManager.Load<Texture2D>("Player/catPortrait");
             Skins[1] = contentManager.Load<Texture2D>("Player/FishKing");
             Portraits[1] = contentManager.Load<Texture2D>("Player/FishKingPortrait");
+
+            Skins[2] = contentManager.Load<Texture2D>("Player/blueFluffyCreature");
+            Portraits[2] = contentManager.Load<Texture2D>("Player/blueFluffyCreaturePortrait");
+
+            Skins[3] = contentManager.Load<Texture2D>("Player/drogo");
+            Portraits[3] = contentManager.Load<Texture2D>("Player/drogoPortrait");
+
+            Skins[4] = contentManager.Load<Texture2D>("Player/dinasaur");
+            Portraits[4] = contentManager.Load<Texture2D>("Player/dinoPortrait");
 
             plrTxtr = contentManager.Load<Texture2D>("Player/Cat1");
             plrPortraitTxtr = contentManager.Load<Texture2D>("Player/catPortrait");

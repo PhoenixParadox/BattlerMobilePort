@@ -22,8 +22,6 @@ namespace MobileGameTest
             Content.RootDirectory = "Content";
 
             graphics.IsFullScreen = true;
-            //graphics.PreferredBackBufferWidth = 300;
-            //graphics.PreferredBackBufferHeight = 200;
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;            
         }
 

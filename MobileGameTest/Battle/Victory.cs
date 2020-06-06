@@ -35,16 +35,15 @@ namespace MobileGameTest.Battle
         public override void Draw(GameTime gameTime)
         {
             game.spriteBatch.GraphicsDevice.Clear(Color.CornflowerBlue);
-            game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, "Ты победил!", new Vector2(230, 250), Color.White);
-            game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, "Заработано трофеев: 10", new Vector2(230, 300), Color.White);
+            game.spriteBatch.Draw(DataManager.Instance.menuBackground, new Vector2(-300, 0), scale: new Vector2(1.5f));
+            game.spriteBatch.Draw(DataManager.Instance.victoryScreen, new Vector2(0, 150));
             continueBtn.Draw(game.spriteBatch);
-            //game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, continueBtn.Text, new Vector2(290, 430), Color.White);
         }
 
         public override void Initialize(Game game)
         {
             this.game = game as Game1;
-            continueBtn = new TouchButton(new Vector2(220, 400), DataManager.Instance.woodenBtn) { Click = SwitchToMenu };
+            continueBtn = new TouchButton(new Vector2(250, 900), DataManager.Instance.continueButton) { Click = SwitchToMenu };
         }
 
         private void SwitchToMenu(object sender, EventArgs e)

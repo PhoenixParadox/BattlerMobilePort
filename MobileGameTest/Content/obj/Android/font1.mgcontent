@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/font1.spritefont</SourceFile>
+  <SourceFile>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/font1.spritefont</SourceFile>
   <SourceTime>2020-06-03T21:31:02.9795927+05:00</SourceTime>
-  <DestFile>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/bin/Android/font1.xnb</DestFile>
-  <DestTime>2020-06-04T13:00:14.2757013+05:00</DestTime>
+  <DestFile>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/bin/Android/font1.xnb</DestFile>
+  <DestTime>2020-06-06T17:18:41.4741749+05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-12-08T21:35:54+05:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

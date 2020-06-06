@@ -46,5 +46,14 @@ namespace MobileGameTest.Data
         public int baseDefAmount;
         public int strongAtckDmg;
         public int swordSwingMultiplicity;
+
+        public int healAmount;
+        public int healMultiplicity;
+        public int armorPenitrationDmg;
+        public int armorPenitrationMultiplicity;
+        public int armorBreakDmg;
+        public int armorBreakMultiplicity;
+        public int dmgBonus;
+        public int dmgkBonusMultiplicity;
     }
 }

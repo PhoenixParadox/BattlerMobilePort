@@ -226,7 +226,9 @@ namespace MobileGameTest.Battle
 
                 stage = Stage.Choosing;
                 Player1.Instance.HP = Player1.Instance.MaxHP;
+                Player1.Instance.DEF = 0;
                 plr = Player1.Instance;
+                Bot.Instance.SwitchBot((BotType)rnd.Next(0, 5));
                 enm = Bot.Instance;
                 Bot.Instance.Refresh();
 
@@ -278,7 +280,7 @@ namespace MobileGameTest.Battle
 
             private void BackToMenu(object sender, EventArgs e)
             {
-                game.SwitchState(MainMenu.Instance);
+                game.SwitchState(Loss.Instance);
             }
 
             public override void Unload()
