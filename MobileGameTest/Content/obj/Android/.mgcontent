@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Android</Platform>
+  <Config />
+  <SourceFiles>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/arenaBackground640x640.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/arenaBackground775x775.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battleback1.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battleBackground1.jpg</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battleBackground1Big.jpg</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battleBirdBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battleBirdPortrait.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battlePortraitPanel.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battlePortraitPanelNew.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battleUpperPanel.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/battleUpperPanelNew.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/chainLink.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/circleIcon64x64.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/healthPanel.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/healthPanel1.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/heartIcon64x64.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/longNarrowWoodenPanel.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/putLinkButton.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/shieldIcon64x64.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/battle/shortNarrowWoodenPanel.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/fonts/battleTitleFont.spritefont</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleAtttackIcon.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleAtttackIconBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleAtttackIconBigSaturated.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleAtttackIconBigSaturated1.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleDeffenceIcon.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleDeffenceIconBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleDeffenceIconBigSaturated.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/simpleDeffenceIconBigSaturated1.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/strongAtck.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/swordSwingIcon.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/swordSwingIconBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/swordSwingIconBigSaturated.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/TalantIcons/swordSwingIconBigSaturated1.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/loadingMessage.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/loadingMessageBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/loadingSymbol1.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/loadingSymbol2.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/loadingSymbol3.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/loadingSymbol4.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/VersusScreen.jpg</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/loadingScreen/VersusScreenBig.jpg</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/menu/goToBattleButtonBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/menu/goToTasksButtonBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/menu/woodPanelBig.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/arialBig.spritefont</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/batleButton2.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/closeButton.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/leftArrow64.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/next_move_btn_txtr.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/rightArrow64.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/shop.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/tasksButton2.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/buttons/woodenBtn192x84.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/common/backPanel.jpg</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/common/menuBackground.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/common/woodenPanel.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/File.spritefont</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/font1.spritefont</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/icons/coin.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/icons/milestoneIcon128x128.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/icons/shopItemIcon.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/icons/trophieIcon.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/localizedMenuFont.spritefont</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/Player/Cat1.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/Player/catPortrait.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/Player/FishKing.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/Player/FishKingPortrait.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/campBackground.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/Goal.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/ProgressBar.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/ProgressBarFirstMilestone.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/ProgressBarFithMilestone.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/ProgressBarFourthMilestone.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/ProgressBarSecondMilestone.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/ProgressBarThirdMilestone.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/PlayerInfo/skillFrame.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/shop/shopBackground.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/shop/shopBackgroundNew.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/shop/shopItemsBackground.png</File>
+    <File>D:/urfu/FirstSemesterProject/monogame/MobileGameTest/Content/text.spritefont</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
