@@ -38,6 +38,7 @@ namespace MobileGameTest.PlayerInfo
             }
         }
 
+        public override int MaxHP { get; set; }
 
         public Bot()
         {

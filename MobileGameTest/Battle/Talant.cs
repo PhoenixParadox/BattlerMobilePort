@@ -160,12 +160,11 @@ namespace MobileGameTest.Battle
         private static Action<Player, Player> strongAtck = (p1, p2) =>
         {
             var dmg = GameData.Instance.strongAtckDmg;
-            if (p2.DEF >= GameData.Instance.strongAtckDmg)
+            if (p2.DEF + p2.DMGBuffer >= dmg)
             {
                 if (p2.DMGBuffer >= dmg)
                 {
                     p2.DMGBuffer = 0;
-                    p1.DMGBonus = 0;
                     return;
                 }
                 p2.DEF -= Math.Abs(dmg - p2.DMGBuffer);
@@ -176,7 +175,6 @@ namespace MobileGameTest.Battle
                 p2.DEF = 0;
                 p2.DMGBuffer = 0;
             }
-            p1.DMGBonus = 0;
         };
         private static Action<Player, Player> def = (p1, p2) => p1.DEF += GameData.Instance.baseDefAmount;
         private static Action<Player, Player> heal = (p1, p2) => p1.HP = Math.Min(p1.MaxHP, p1.HP + GameData.Instance.healAmount);
@@ -234,7 +232,7 @@ namespace MobileGameTest.Battle
                 {
                     action = strongAtck, 
                     txtr = DataManager.Instance.strongAtck, 
-                    description = "БЫСТРЫЙ И МОЩНЫЙ ВЗМАХ,\n" + $"НАНОСЯЩИЙ {GameData.Instance.strongAtckDmg} DMG",
+                    description = "БЫСТРЫЙ И МОЩНЫЙ ВЗМАХ,\n" + $"НАНОСЯЩИЙ {GameData.Instance.strongAtckDmg} DMG\nБОНУС К АТАКЕ НЕ РАБОТАЕТ\nНА ЭТУ СПОСОБНОСТЬ",
                     shortDescription = $"{GameData.Instance.strongAtckDmg} DMG",
                     multiplicity = GameData.Instance.swordSwingMultiplicity, 
                     type = TalantType.SwordSwing 
@@ -264,8 +262,8 @@ namespace MobileGameTest.Battle
                 {
                     action = armorPenitration,
                     txtr = DataManager.Instance.armorPenitrationAtck,
-                    description = "КОЛЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.armorBreakDmg} DMG СКВОЗЬ БРОНЮ",
-                    shortDescription = $"{GameData.Instance.armorBreakDmg} DMG СКВОЗЬ БРОНЮ",
+                    description = "КОЛЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.armorPenitrationDmg} DMG\nИГНОРИРУЕТ БРОНЮ",
+                    shortDescription = $"{GameData.Instance.armorPenitrationDmg} DMG СКВОЗЬ БРОНЮ",
                     multiplicity = GameData.Instance.armorPenitrationMultiplicity,
                     type = TalantType.ArmorPenitration
                 };
@@ -279,7 +277,7 @@ namespace MobileGameTest.Battle
                 {
                     action = heal,
                     txtr = DataManager.Instance.heal,
-                    description = $"ВОССТАНОВИ {GameData.Instance.healAmount } HP",
+                    description = $"ВОССТАНОВЛИВАЕТ {GameData.Instance.healAmount } HP",
                     shortDescription = $"+ {GameData.Instance.healAmount} HP",
                     multiplicity = GameData.Instance.healMultiplicity,
                     type = TalantType.Heal

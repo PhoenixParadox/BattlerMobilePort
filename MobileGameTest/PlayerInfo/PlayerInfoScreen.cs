@@ -49,12 +49,31 @@ namespace MobileGameTest.PlayerInfo
         private List<TouchButton> components;
         private PlayerInfoTabs activeTab;
         public ProgressBar progressBar;
-        private InvisibleButton goalButton;
+        private TouchButton goalButton;
         private TouchButton[] tabs;
         private InvisibleButton[] TalantPickButtons;
         private InvisibleButton[] AddTalantButtons;
         private int TalantToReplaceInd;
         private int initialCollectionSize;
+
+        private int startCollectionViewInd;
+        private IEnumerable<Talant> collectionView
+        {
+            get
+            {
+                var res = new List<Talant>();
+                for (int i = 0; i < 3; i++)
+                {
+                    var ind = (startCollectionViewInd + i) % Player1.Instance.Collection.Count;
+                    yield return Player1.instance.Collection[ind];
+                }
+            }
+        }
+
+        private TouchButton[] collectionViewButtons;
+
+        private TouchButton[] savedDecks;
+        private TouchButton saveCurrentDeck;
 
         private PlayerInfoScreen()
         {
@@ -64,20 +83,20 @@ namespace MobileGameTest.PlayerInfo
         private void Load()
         {
             components = new List<TouchButton>();
-            components.Add(new TouchButton(new Vector2(550, 30), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu });
-            components.Add(new TouchButton(new Vector2(150, 300), DataManager.Instance.rightArrow) { Click = SwitchSkinRight });
-            components.Add(new TouchButton(new Vector2(20, 300), DataManager.Instance.leftArrow) { Click = SwitchSkinLeft });
+            components.Add(new TouchButton(new Vector2(680, 20), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu });
+            components.Add(new TouchButton(new Vector2(240, 480), DataManager.Instance.rightArrow) { Click = SwitchSkinRight });
+            components.Add(new TouchButton(new Vector2(20, 480), DataManager.Instance.leftArrow) { Click = SwitchSkinLeft });
             activeTab = PlayerInfoTabs.Progress;
             progressBar = new ProgressBar();
             progressBar.MileStones = Tuple.Create(GameData.Instance.milestones.m1, GameData.Instance.milestones.m2);
             progressBar.currentGoal = GameData.Instance.currentGoal;
-            goalButton = new InvisibleButton(new Rectangle((int)progressBar.currentGoalPosition.X, (int)progressBar.currentGoalPosition.Y, DataManager.Instance.goalTxtr.Width, DataManager.Instance.goalTxtr.Height));
+            goalButton = new TouchButton(new Vector2(570, 960), DataManager.Instance.goalButton);
             goalButton.Click += goalClick;
 
             tabs = new TouchButton[3];
-            tabs[0] = new TouchButton(new Vector2(10, 360), DataManager.Instance.woodenBtn);
-            tabs[1] = new TouchButton(new Vector2(10 + 20 + DataManager.Instance.woodenBtn.Width, 360), DataManager.Instance.woodenBtn);
-            tabs[2] = new TouchButton(new Vector2(10 + 40 + DataManager.Instance.woodenBtn.Width * 2, 360), DataManager.Instance.woodenBtn);
+            tabs[0] = new TouchButton(new Vector2(10, 660), DataManager.Instance.progressButton);
+            tabs[1] = new TouchButton(new Vector2(10 + 30 + DataManager.Instance.collectionButton.Width, 660), DataManager.Instance.collectionButton);
+            tabs[2] = new TouchButton(new Vector2(10 + 60 + DataManager.Instance.deckButton.Width * 2, 660), DataManager.Instance.deckButton);
             tabs[0].Click = (object sender, EventArgs e) => this.activeTab = PlayerInfoTabs.Progress;
             tabs[1].Click = (object sender, EventArgs e) => this.activeTab = PlayerInfoTabs.Collection;
             tabs[2].Click = (object sender, EventArgs e) => this.activeTab = PlayerInfoTabs.Deck;
@@ -96,31 +115,79 @@ namespace MobileGameTest.PlayerInfo
                 j = (i == 50) ? j + 150 : j;
             }
             MakeAddtalantButtons();
+
+            collectionViewButtons = new TouchButton[2];
+            collectionViewButtons[0] = new TouchButton(new Vector2(650, 790), DataManager.Instance.upButton);
+            collectionViewButtons[0].Click += (sender, e) => startCollectionViewInd = (startCollectionViewInd + 1) % Player1.Instance.Collection.Count;
+            collectionViewButtons[1] = new TouchButton(new Vector2(650, 1100), DataManager.Instance.downButton);
+            collectionViewButtons[1].Click += (sender, e) => startCollectionViewInd = (startCollectionViewInd == 0) ? Player1.Instance.Collection.Count - 1 : startCollectionViewInd - 1;
+
+            savedDecks = new TouchButton[3];
+            savedDecks[0] = new TouchButton(new Vector2(50, 300), DataManager.Instance.deck1Btn);
+            savedDecks[0].Click += SwitchDeck;
+            savedDecks[1] = new TouchButton(new Vector2(250, 300), DataManager.Instance.deck2Btn);
+            savedDecks[1].Click += SwitchDeck;
+            savedDecks[2] = new TouchButton(new Vector2(450, 300), DataManager.Instance.deck3Btn);
+            savedDecks[2].Click += SwitchDeck;
+
+            saveCurrentDeck = new TouchButton(new Vector2(100, 100), DataManager.Instance.woodenBtn);
+            saveCurrentDeck.Click += SaveDeck;
+        }
+
+        private void SaveDeck(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SwitchDeck(object sender, EventArgs e)
+        {
+            var ind = 0;
+            for (int i = 0; i < 3; i++ )
+            {
+                if ((TouchButton)sender == savedDecks[i])
+                {
+                    ind = i;
+                    break;
+                }
+            }
+            Player1.Instance.currentDeck = ind + 1;
+            Player1.Instance.SetDeck();
         }
 
         public override void Draw(GameTime gameTime)
         {
             game.spriteBatch.GraphicsDevice.Clear(Color.CornflowerBlue);
             game.spriteBatch.Draw(DataManager.Instance.campBackgroundTxtr, new Vector2(0, -40), scale: new Vector2(1.5f));
-            game.spriteBatch.Draw(DataManager.Instance.menuLowerPanel, new Vector2(-30, 700));
-            var text = Player1.Instance.name + "\nHP " + Player1.Instance.MaxHP + "\nталантов собрано " + Player1.Instance.Collection.Count;
-            game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, text, new Vector2(300, 128), Color.White);
-            foreach (var e in components)
-                e.Draw(game.spriteBatch);
+            game.spriteBatch.Draw(DataManager.Instance.menuLowerPanel, new Vector2(-35, 700));
+            game.spriteBatch.Draw(DataManager.Instance.lowerPanelBorder, new Vector2(-15,700));
+
             foreach (var t in tabs)
             {
                 t.Draw(game.spriteBatch);
             }
-            Player1.Instance.sprite.Position = new Vector2(30, 30);
-            Player1.Instance.sprite.scale = 0.7f;
-            Player1.Instance.sprite.spriteEffects = SpriteEffects.None;
-            Player1.Instance.sprite.Draw(game.spriteBatch);
+
             switch (activeTab)
             {
                 case (PlayerInfoTabs.Progress):
+                    game.spriteBatch.Draw(DataManager.Instance.playerStats, new Vector2(350, 200));
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.name, new Vector2(410, 220), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.MaxHP.ToString(), new Vector2(520, 310), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.Collection.Count.ToString(), new Vector2(600, 390), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.points.ToString(), new Vector2(370, 480), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.trophies.ToString(), new Vector2(530, 480), Color.White);
+                    Player1.Instance.sprite.Draw(game.spriteBatch);
+
+                    foreach (var e in components)
+                        e.Draw(game.spriteBatch);
+
                     progressBar.Draw(game.spriteBatch);
+                    goalButton.Draw(game.spriteBatch);
                     break;
                 case (PlayerInfoTabs.Deck):
+                    foreach (var b in savedDecks)
+                    {
+                        b.Draw(game.spriteBatch);
+                    }
                     var i = 50;
                     var j = 770;
                     foreach (var t in Player1.Instance.Deck)
@@ -131,29 +198,48 @@ namespace MobileGameTest.PlayerInfo
                     }
                     break;
                 case (PlayerInfoTabs.Collection):
+                    game.spriteBatch.Draw(DataManager.Instance.playerStats, new Vector2(350, 200));
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.name, new Vector2(410, 220), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.MaxHP.ToString(), new Vector2(520, 310), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.Collection.Count.ToString(), new Vector2(600, 390), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.points.ToString(), new Vector2(370, 480), Color.White);
+                    game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.trophies.ToString(), new Vector2(530, 480), Color.White);
+                    Player1.Instance.sprite.Draw(game.spriteBatch);
+
+                    foreach (var e in components)
+                        e.Draw(game.spriteBatch);
+
+                    foreach (var b in collectionViewButtons)
+                    {
+                        b.Draw(game.spriteBatch);
+                    }
                     var k = 90;
                     var n = 770;
                     var index = 0;
-                    foreach (var t in Player1.Instance.Collection)
+                    foreach (var t in collectionView)
                     {
                         game.spriteBatch.Draw(t.txtr, new Vector2(k, n));
-                        game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, t.description, new Vector2(k + 104, n + 10), Color.White);
-                        game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, Player1.Instance.Collection[index].multiplicity.ToString(), new Vector2(k - 30, n + 10), Color.White);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.description, new Vector2(k + 140, n + 20), Color.White);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.multiplicity.ToString(), new Vector2(k - 30, n + 30), Color.White);
                         n += 150;
                         index++;
                     }
                     break;
                 case (PlayerInfoTabs.PickingTalant):
+                    foreach (var b in collectionViewButtons)
+                    {
+                        b.Draw(game.spriteBatch);
+                    }
                     var l = 90;
                     var m = 770;
-                    var ind = 0;
-                    foreach (var t in Player1.Instance.Collection)
+                    var ind = startCollectionViewInd;
+                    foreach (var t in collectionView)
                     {
                         game.spriteBatch.Draw(t.txtr, new Vector2(l, m));
-                        game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, t.description, new Vector2(l + 104, m + 10), Color.White);
-                        game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, NumberOfAvailableCopies(ind).ToString(), new Vector2(l - 30, m + 10), Color.White);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.description, new Vector2(l + 140, m + 20), Color.White);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, NumberOfAvailableCopies(ind).ToString(), new Vector2(l - 30, m + 30), Color.White);
                         m += 150;
-                        ind++;
+                        ind = (ind + 1) % Player1.Instance.Collection.Count;
                     }
                     break;
             }
@@ -165,23 +251,24 @@ namespace MobileGameTest.PlayerInfo
             {
                 this.game = game as Game1;
             }
-            Player1.Instance.sprite.Position = new Vector2(30, 30);
-            Player1.Instance.sprite.scale = 0.7f;
+
+            Player1.Instance.sprite.Position = new Vector2(50, 100);
+            Player1.Instance.sprite.scale = 0.9f;
             Player1.Instance.sprite.spriteEffects = SpriteEffects.None;
             initialCollectionSize = Player1.Instance.Collection.Count;
         }
 
         private void MakeAddtalantButtons()
         {
-            AddTalantButtons = new InvisibleButton[Player1.Instance.Collection.Count];
+            AddTalantButtons = new InvisibleButton[3];
             var k = 90;
             var n = 770;
             var ind = 0;
-            foreach (var t in Player1.Instance.Collection)
+            for(int i = 0; i < 3; i++)
             {
                 var b = new InvisibleButton(new Rectangle(k, n, 100, 96));
                 b.Click += AddButton;
-                AddTalantButtons[ind++] = b;
+                AddTalantButtons[i] = b;
                 n += 150;
             }
         }
@@ -206,7 +293,7 @@ namespace MobileGameTest.PlayerInfo
             {
                 if (AddTalantButtons[i] == ((InvisibleButton)sender))
                 {
-                    talantToPlace = i;
+                    talantToPlace = (startCollectionViewInd + i) % Player1.Instance.Collection.Count;
                     break;
                 }
             }
@@ -277,6 +364,7 @@ namespace MobileGameTest.PlayerInfo
             progressBar.currentGoal = (progressBar.currentGoal + 1) % progressBar.goals.Length;
             GameData.Instance.currentGoal = progressBar.currentGoal;
             PlayerData.Instance.points -= progressBar.goals[progressBar.currentGoal].cost + progressBar.costCoeffitient;
+            progressBar.SetGoals(progressBar.MileStones.Item2);
         }
 
         private void BackToMenu(object sender, EventArgs e)
@@ -297,12 +385,24 @@ namespace MobileGameTest.PlayerInfo
                 initialCollectionSize++;
             }
 
-            foreach (var e in components)
-                e.Update(gameTime);
+
             foreach (var t in tabs)
                 t.Update(gameTime);
+            if (activeTab == PlayerInfoTabs.Collection)
+            {
+                foreach (var e in components)
+                    e.Update(gameTime);
+                foreach (var b in collectionViewButtons)
+                {
+                    b.Update(gameTime);
+                }
+            }
             if (activeTab == PlayerInfoTabs.Deck)
             {
+                foreach (var b in savedDecks)
+                {
+                    b.Update(gameTime);
+                }
                 foreach (var t in TalantPickButtons)
                 {
                     t.Update(gameTime);
@@ -310,6 +410,8 @@ namespace MobileGameTest.PlayerInfo
             }
             if (activeTab == PlayerInfoTabs.Progress)
             {
+                foreach (var e in components)
+                    e.Update(gameTime);
                 goalButton.Update(gameTime);
             }
             if (activeTab == PlayerInfoTabs.PickingTalant)
@@ -317,6 +419,10 @@ namespace MobileGameTest.PlayerInfo
                 foreach (var t in AddTalantButtons)
                 {
                     t.Update(gameTime);
+                }
+                foreach (var b in collectionViewButtons)
+                {
+                    b.Update(gameTime);
                 }
             }
         }

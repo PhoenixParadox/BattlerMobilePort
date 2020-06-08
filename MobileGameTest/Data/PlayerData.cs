@@ -40,5 +40,9 @@ namespace MobileGameTest.Data
         public string Name;
         public List<TalantType> playerCollection;
         public List<TalantType> playerDeck;
+
+        public List<TalantType> savedDeck1;
+        public List<TalantType> savedDeck2;
+        public List<TalantType> savedDeck3;
     }
 }

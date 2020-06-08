@@ -21,13 +21,18 @@ namespace MobileGameTest.PlayerInfo
     /// <summary>
     /// Обобщённый класс игрока.
     /// </summary>
-    public class Player
+    public abstract class Player
     {
-        public int MaxHP;
+        public virtual int MaxHP { get; set; }
         public int HP;
         public int DEF;
         public List<Talant> Collection;
+        public List<List<Talant>> Decks;
         public List<Talant> Deck;
+        public List<Talant> Deck1;
+        public List<Talant> Deck2;
+        public List<Talant> Deck3;
+        public int currentDeck;
         public Sprite sprite;
         public Sprite portraitSprite;
         public string name;
@@ -67,7 +72,7 @@ namespace MobileGameTest.PlayerInfo
                 return PlayerData.Instance.trophies;
             }
         }
-        public int MaxHP
+        public override int MaxHP
         {
             get
             {
@@ -104,6 +109,11 @@ namespace MobileGameTest.PlayerInfo
                 PlayerData.Instance.playerDeck[i] = Deck[i].type;
             }
             
+        }
+
+        public void SetDeck()
+        {
+            Deck = (currentDeck == 1) ? Deck1 : (currentDeck == 2) ? Deck2 : Deck3;
         }
 
         public override void Draw(SpriteBatch spriteBatch)

@@ -77,7 +77,7 @@ namespace MobileGameTest.Data
         public void CreatePlayerData()
         {
             PlayerData.Instance.Name = "nickname";
-            PlayerData.Instance.points =  0;
+            PlayerData.Instance.points =  10000;
             PlayerData.Instance.trophies = 0;
             PlayerData.Instance.maxUnlockedSkin = 0;
             PlayerData.Instance.currentSkin = 0;
@@ -95,22 +95,46 @@ namespace MobileGameTest.Data
 
             GameData.Instance.healMultiplicity = 2;
             GameData.Instance.healAmount = 3;
-            GameData.Instance.armorBreakDmg = 5;
+
+            GameData.Instance.armorBreakDmg = 7;
             GameData.Instance.armorBreakMultiplicity = 4;
+
             GameData.Instance.armorPenitrationDmg = 4;
             GameData.Instance.armorPenitrationMultiplicity = 3;
+
+            GameData.Instance.dmgBonus = 2;
+            GameData.Instance.dmgkBonusMultiplicity = 2;
         }
         public void CreateBaseCollection()
         {
             PlayerData.Instance.playerCollection = new List<TalantType>();
             PlayerData.Instance.playerDeck = new List<TalantType>();
+            PlayerData.Instance.savedDeck1 = new List<TalantType>();
+            PlayerData.Instance.savedDeck2 = new List<TalantType>();
+            PlayerData.Instance.savedDeck3 = new List<TalantType>();
             PlayerData.Instance.playerCollection.Add(TalantType.BaseAttack);
             PlayerData.Instance.playerCollection.Add(TalantType.BaseDef);
             for (int i = 0; i < 6; i++)
             {
                 PlayerData.Instance.playerDeck.Add(TalantType.BaseAttack);
                 PlayerData.Instance.playerDeck.Add(TalantType.BaseDef);
+                PlayerData.Instance.savedDeck1.Add(TalantType.BaseDef);
+                PlayerData.Instance.savedDeck1.Add(TalantType.BaseAttack);
+                PlayerData.Instance.savedDeck2.Add(TalantType.BaseDef);
+                PlayerData.Instance.savedDeck2.Add(TalantType.BaseAttack);
+                PlayerData.Instance.savedDeck3.Add(TalantType.BaseDef);
+                PlayerData.Instance.savedDeck3.Add(TalantType.BaseAttack);
             }
+        }
+
+        public void CreateFullCollection()
+        {
+            CreateBaseCollection();
+            PlayerData.Instance.playerCollection.Add(TalantType.ArmorBreak);
+            PlayerData.Instance.playerCollection.Add(TalantType.ArmorPenitration);
+            PlayerData.Instance.playerCollection.Add(TalantType.AtckBonus);
+            PlayerData.Instance.playerCollection.Add(TalantType.Heal);
+            PlayerData.Instance.playerCollection.Add(TalantType.SwordSwing);
         }
         #endregion
 
@@ -147,6 +171,9 @@ namespace MobileGameTest.Data
             gameEdit.PutInt("armorBreakDmg", GameData.Instance.armorBreakDmg);
             gameEdit.PutInt("armorPenitrationDmg", GameData.Instance.armorPenitrationDmg);
             gameEdit.PutInt("armorPenitrationMultiplicity", GameData.Instance.armorPenitrationMultiplicity);
+
+            gameEdit.PutInt("dmgBonus", GameData.Instance.dmgBonus);
+            gameEdit.PutInt("dmgBonusMultiplicity", GameData.Instance.dmgkBonusMultiplicity);
             gameEdit.Commit();
         }
         private void SavePlayer()
@@ -177,6 +204,36 @@ namespace MobileGameTest.Data
                 }
             }
             playerEdit.PutString("deck", str);
+            str = "";
+            for (int i = 0; i < 12; i++)
+            {
+                str += ((int)PlayerData.Instance.savedDeck1[i]).ToString();
+                if (i != 11)
+                {
+                    str += ";";
+                }
+            }
+            playerEdit.PutString("deck1", str);
+            str = "";
+            for (int i = 0; i < 12; i++)
+            {
+                str += ((int)PlayerData.Instance.savedDeck2[i]).ToString();
+                if (i != 11)
+                {
+                    str += ";";
+                }
+            }
+            playerEdit.PutString("deck2", str);
+            str = "";
+            for (int i = 0; i < 12; i++)
+            {
+                str += ((int)PlayerData.Instance.savedDeck3[i]).ToString();
+                if (i != 11)
+                {
+                    str += ";";
+                }
+            }
+            playerEdit.PutString("deck3", str);
             playerEdit.Commit();
         }
         #endregion
@@ -207,6 +264,9 @@ namespace MobileGameTest.Data
             GameData.Instance.armorBreakMultiplicity = gameData.GetInt("armorBreakMultiplicity", 4);
             GameData.Instance.armorPenitrationDmg = gameData.GetInt("armorPenitrationDmg", 4);
             GameData.Instance.armorPenitrationMultiplicity = gameData.GetInt("armorPenitrationMultiplicity", 3);
+
+            GameData.Instance.dmgBonus = gameData.GetInt("dmgBonus", 2);
+            GameData.Instance.dmgkBonusMultiplicity = gameData.GetInt("dmgBonusMultiplicity", 2);
         }
         private void LoadPlayer()
         {
@@ -228,6 +288,25 @@ namespace MobileGameTest.Data
             {
                 PlayerData.Instance.playerDeck.Add((TalantType)(Int32.Parse(c)));
             }
+
+            temp = playerData.GetString("deck1", "0;1;0;1;0;1;0;1;0;1;0;1").Split(';');
+            PlayerData.Instance.savedDeck1 = new List<TalantType>();
+            foreach (var c in temp)
+            {
+                PlayerData.Instance.savedDeck1.Add((TalantType)(Int32.Parse(c)));
+            }
+            temp = playerData.GetString("deck2", "0;1;0;1;0;1;0;1;0;1;0;1").Split(';');
+            PlayerData.Instance.savedDeck2 = new List<TalantType>();
+            foreach (var c in temp)
+            {
+                PlayerData.Instance.savedDeck2.Add((TalantType)(Int32.Parse(c)));
+            }
+            temp = playerData.GetString("deck3", "0;1;0;1;0;1;0;1;0;1;0;1").Split(';');
+            PlayerData.Instance.savedDeck3 = new List<TalantType>();
+            foreach (var c in temp)
+            {
+                PlayerData.Instance.savedDeck3.Add((TalantType)(Int32.Parse(c)));
+            }
         }
 
         public void LoadGameData()
@@ -240,9 +319,13 @@ namespace MobileGameTest.Data
             if (PlayerData.Instance.playerCollection == null)
             {
                 CreateBaseCollection();
+                //CreateFullCollection();
             }
             Player1.Instance.Collection = RestoreCollection(PlayerData.Instance.playerCollection);
             Player1.Instance.Deck = RestoreDeck(PlayerData.Instance.playerDeck);
+            Player1.Instance.Deck1 = RestoreDeck(PlayerData.Instance.savedDeck1);
+            Player1.Instance.Deck2 = RestoreDeck(PlayerData.Instance.savedDeck2);
+            Player1.Instance.Deck3 = RestoreDeck(PlayerData.Instance.savedDeck3);
             Player1.Instance.Initialize();
             LoadShop();
         }
@@ -281,6 +364,9 @@ namespace MobileGameTest.Data
         public SpriteFont arialBig;
         public SpriteFont testFont;
         public SpriteFont battleTitleFont;
+        public SpriteFont playerMenuFont;
+        public SpriteFont milestonesFont;
+        public SpriteFont goalDescriptionFont;
         #endregion
 
         #region menu components
@@ -329,6 +415,21 @@ namespace MobileGameTest.Data
         public Texture2D plrPortraitTxtr1;
         #endregion
 
+        #region player info
+        public Texture2D lowerPanelBorder;
+        public Texture2D progressButton;
+        public Texture2D collectionButton;
+        public Texture2D deckButton;
+        public Texture2D downButton;
+        public Texture2D upButton;
+        public Texture2D goalPanel;
+        public Texture2D goalButton;
+        public Texture2D playerStats;
+        public Texture2D deck1Btn;
+        public Texture2D deck2Btn;
+        public Texture2D deck3Btn;
+        #endregion
+
         #region icons
         public Texture2D coinIcon;
         public Texture2D shopIcon;
@@ -375,6 +476,9 @@ namespace MobileGameTest.Data
             //textFont = contentManager.Load<SpriteFont>("textFont");
             arialBig = contentManager.Load<SpriteFont>("arialBig");
             battleTitleFont = contentManager.Load<SpriteFont>("fonts/battleTitleFont");
+            playerMenuFont = contentManager.Load<SpriteFont>("fonts/playerMenuLocalizedFont");
+            milestonesFont = contentManager.Load<SpriteFont>("fonts/milestonesFont");
+            goalDescriptionFont = contentManager.Load<SpriteFont>("fonts/goalDescriptionFont");
             #endregion
 
             #region menu components
@@ -386,7 +490,7 @@ namespace MobileGameTest.Data
             battleButtonTxtr = contentManager.Load<Texture2D>("menu/goToBattleButtonBig");
             campBackgroundTxtr = contentManager.Load<Texture2D>("PlayerInfo/campBackground");
             skillFrame = contentManager.Load<Texture2D>("PlayerInfo/skillFrame");
-            woodenBtn = contentManager.Load<Texture2D>("buttons/woodenBtn192x84");
+            woodenBtn = contentManager.Load<Texture2D>("buttons/woodenBtn230x100");
             menuBackground = contentManager.Load<Texture2D>("common/menuBackground");
             menuLowerPanel = contentManager.Load<Texture2D>("menu/woodPanelBig");
 
@@ -397,12 +501,12 @@ namespace MobileGameTest.Data
 
             #region progress bar
             ProgressBar = new Texture2D[6];
-            ProgressBar[0] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBar");
-            ProgressBar[1] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBarFirstMilestone");
-            ProgressBar[2] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBarSecondMilestone");
-            ProgressBar[3] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBarThirdMilestone");
-            ProgressBar[4] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBarFourthMilestone");
-            ProgressBar[5] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBarFithMilestone");
+            ProgressBar[0] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBar0");
+            ProgressBar[1] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBar1");
+            ProgressBar[2] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBar2");
+            ProgressBar[3] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBar3");
+            ProgressBar[4] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBar4");
+            ProgressBar[5] = contentManager.Load<Texture2D>("PlayerInfo/ProgressBar5");
             milestoneIcon = contentManager.Load<Texture2D>("icons/milestoneIcon128x128");
 
             rightArrow = contentManager.Load<Texture2D>("buttons/rightArrow64");
@@ -439,6 +543,20 @@ namespace MobileGameTest.Data
             plrPortraitTxtr = contentManager.Load<Texture2D>("Player/catPortrait");
             plrTxtr1 = contentManager.Load<Texture2D>("Player/FishKing");
             plrPortraitTxtr1 = contentManager.Load<Texture2D>("Player/FishKingPortrait");
+            #endregion
+            #region player info
+            lowerPanelBorder = contentManager.Load<Texture2D>("PlayerInfo/longWoodenPlank");
+            progressButton = contentManager.Load<Texture2D>("buttons/progressButton");
+            collectionButton = contentManager.Load<Texture2D>("buttons/collectionButton");
+            deckButton = contentManager.Load<Texture2D>("buttons/deckButton");
+            downButton = contentManager.Load<Texture2D>("buttons/downButton");
+            upButton = contentManager.Load<Texture2D>("buttons/upButton");
+            goalPanel = contentManager.Load<Texture2D>("PlayerInfo/goalPanel");
+            goalButton = contentManager.Load<Texture2D>("buttons/upgradeButton");
+            playerStats = contentManager.Load<Texture2D>("PlayerInfo/playerStats");
+            deck1Btn = contentManager.Load<Texture2D>("buttons/deck1");
+            deck2Btn = contentManager.Load<Texture2D>("buttons/deck2");
+            deck3Btn = contentManager.Load<Texture2D>("buttons/deck3");
             #endregion
 
             #region icons

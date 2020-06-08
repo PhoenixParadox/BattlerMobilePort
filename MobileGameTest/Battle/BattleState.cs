@@ -225,6 +225,7 @@ namespace MobileGameTest.Battle
                 #endregion
 
                 stage = Stage.Choosing;
+                currentLink = 0;
                 Player1.Instance.HP = Player1.Instance.MaxHP;
                 Player1.Instance.DEF = 0;
                 plr = Player1.Instance;

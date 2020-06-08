@@ -4,6 +4,48 @@
   <Platform>Android</Platform>
   <Config />
   <SourceFiles>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/batleButton2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/closeButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/collectionButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/deck1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/deck2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/deck3.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/deckButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/downButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/leftArrow64.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/next_move_btn_txtr.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/progressButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/rightArrow64.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shop.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/tasksButton2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/upButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/upgradeButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/woodenBtn192x84.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/woodenBtn230x100.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/playerStats.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/fonts/battleTitleFont.spritefont</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/fonts/goalDescriptionFont.spritefont</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/fonts/milestonesFont.spritefont</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/fonts/playerMenuLocalizedFont.spritefont</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/goalPanel.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/campBackground.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/Goal.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/longWoodenPlank.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar0.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar3.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar4.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar5.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar6.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarFirstMilestone.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarFithMilestone.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarFourthMilestone.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarSecondMilestone.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarThirdMilestone.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/skillFrame.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/woodenBtn250x109.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/lossScreenWithScore.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/victoryScreenWithScore.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/continueButton.png</File>
@@ -38,7 +80,6 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/swordSwingIconBig.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/swordSwingIconBigSaturated.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/swordSwingIconBigSaturated1.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/fonts/battleTitleFont.spritefont</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/arialBig.spritefont</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/battle/arenaBackground640x640.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/battle/arenaBackground775x775.png</File>
@@ -60,14 +101,6 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/battle/putLinkButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/battle/shieldIcon64x64.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/battle/shortNarrowWoodenPanel.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/batleButton2.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/closeButton.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/leftArrow64.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/next_move_btn_txtr.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/rightArrow64.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shop.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/tasksButton2.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/woodenBtn192x84.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/common/backPanel.jpg</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/common/menuBackground.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/common/woodenPanel.png</File>
@@ -86,20 +119,28 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/loadingScreen/VersusScreen.jpg</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/loadingScreen/VersusScreenBig.jpg</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/localizedMenuFont.spritefont</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/campBackground.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/Goal.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBar.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarFirstMilestone.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarFithMilestone.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarFourthMilestone.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarSecondMilestone.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/ProgressBarThirdMilestone.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/PlayerInfo/skillFrame.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopBackground.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopBackgroundNew.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopItemsBackground.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>
