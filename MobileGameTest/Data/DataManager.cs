@@ -104,6 +104,9 @@ namespace MobileGameTest.Data
 
             GameData.Instance.dmgBonus = 2;
             GameData.Instance.dmgkBonusMultiplicity = 2;
+
+            CreateAllTalants();
+            GameData.Instance.unlockedTalants = new List<TalantType>() { TalantType.BaseAttack, TalantType.BaseDef };
         }
         public void CreateBaseCollection()
         {
@@ -136,6 +139,16 @@ namespace MobileGameTest.Data
             PlayerData.Instance.playerCollection.Add(TalantType.Heal);
             PlayerData.Instance.playerCollection.Add(TalantType.SwordSwing);
         }
+
+        public void CreateAllTalants()
+        {
+            GameData.Instance.allTalants = new Dictionary<TalantType, int[]>();
+            foreach (var k in GameData.AllTalants.Keys)
+            {
+                var val = GameData.AllTalants[k];
+                GameData.Instance.allTalants.Add(k, new int[4] { val.Item1, val.Item2, val.Item3, val.Item4 });
+            }
+        }
         #endregion
 
 
@@ -160,20 +173,37 @@ namespace MobileGameTest.Data
             }
             gameEdit.PutString("shopItems", str);
             gameEdit.PutInt("currentGoal", GameData.Instance.currentGoal);
-            gameEdit.PutInt("baseAtckDmg", GameData.Instance.baseAtckDmg);
-            gameEdit.PutInt("baseDefAmount", GameData.Instance.baseDefAmount);
-            gameEdit.PutInt("strongAtckDmg", GameData.Instance.strongAtckDmg);
-            gameEdit.PutInt("swordSwingMultiplicity", GameData.Instance.swordSwingMultiplicity);
+            //gameEdit.PutInt("baseAtckDmg", GameData.Instance.baseAtckDmg);
+            //gameEdit.PutInt("baseDefAmount", GameData.Instance.baseDefAmount);
+            //gameEdit.PutInt("strongAtckDmg", GameData.Instance.strongAtckDmg);
+            //gameEdit.PutInt("swordSwingMultiplicity", GameData.Instance.swordSwingMultiplicity);
 
-            gameEdit.PutInt("healAmount", GameData.Instance.healAmount);
-            gameEdit.PutInt("healMultiplicity", GameData.Instance.healMultiplicity);
-            gameEdit.PutInt("armorBreakMultiplicity", GameData.Instance.armorBreakMultiplicity);
-            gameEdit.PutInt("armorBreakDmg", GameData.Instance.armorBreakDmg);
-            gameEdit.PutInt("armorPenitrationDmg", GameData.Instance.armorPenitrationDmg);
-            gameEdit.PutInt("armorPenitrationMultiplicity", GameData.Instance.armorPenitrationMultiplicity);
+            //gameEdit.PutInt("healAmount", GameData.Instance.healAmount);
+            //gameEdit.PutInt("healMultiplicity", GameData.Instance.healMultiplicity);
+            //gameEdit.PutInt("armorBreakMultiplicity", GameData.Instance.armorBreakMultiplicity);
+            //gameEdit.PutInt("armorBreakDmg", GameData.Instance.armorBreakDmg);
+            //gameEdit.PutInt("armorPenitrationDmg", GameData.Instance.armorPenitrationDmg);
+            //gameEdit.PutInt("armorPenitrationMultiplicity", GameData.Instance.armorPenitrationMultiplicity);
 
-            gameEdit.PutInt("dmgBonus", GameData.Instance.dmgBonus);
-            gameEdit.PutInt("dmgBonusMultiplicity", GameData.Instance.dmgkBonusMultiplicity);
+            //gameEdit.PutInt("dmgBonus", GameData.Instance.dmgBonus);
+            //gameEdit.PutInt("dmgBonusMultiplicity", GameData.Instance.dmgkBonusMultiplicity);
+
+            gameEdit.Commit();
+            SaveAllTalants();
+        }
+        private void SaveAllTalants()
+        {
+            var dict = GameData.Instance.allTalants;
+            foreach (var k in dict.Keys)
+            {
+                var str = "";
+                //str += k.ToString() + ";";
+                for (int i = 0; i < 4; i++)
+                {
+                    str += (i == 3) ? dict[k][i].ToString() : dict[k][i] + ";"; 
+                }
+                gameEdit.PutString(k.ToString(), str);
+            }
             gameEdit.Commit();
         }
         private void SavePlayer()
@@ -253,20 +283,40 @@ namespace MobileGameTest.Data
             GameData.Instance.shopItems = temp.Select(i => Int32.Parse(i)).ToList();
             //LoadShop();
             GameData.Instance.currentGoal = gameData.GetInt("currentGoal", 0);
-            GameData.Instance.baseAtckDmg = gameData.GetInt("baseAtckDmg", 5);
-            GameData.Instance.baseDefAmount = gameData.GetInt("baseDefAmount", 5);
-            GameData.Instance.strongAtckDmg = gameData.GetInt("strongAtckDmg", 10);
-            GameData.Instance.swordSwingMultiplicity = gameData.GetInt("swordSwingMultiplicity", 2);
+            //GameData.Instance.baseAtckDmg = gameData.GetInt("baseAtckDmg", 5);
+            //GameData.Instance.baseDefAmount = gameData.GetInt("baseDefAmount", 5);
+            //GameData.Instance.strongAtckDmg = gameData.GetInt("strongAtckDmg", 10);
+            //GameData.Instance.swordSwingMultiplicity = gameData.GetInt("swordSwingMultiplicity", 2);
 
-            GameData.Instance.healMultiplicity = gameData.GetInt("healMultiplicity", 2);
-            GameData.Instance.healAmount = gameData.GetInt("healAmount", 3);
-            GameData.Instance.armorBreakDmg = gameData.GetInt("armorBreakDmg", 5);
-            GameData.Instance.armorBreakMultiplicity = gameData.GetInt("armorBreakMultiplicity", 4);
-            GameData.Instance.armorPenitrationDmg = gameData.GetInt("armorPenitrationDmg", 4);
-            GameData.Instance.armorPenitrationMultiplicity = gameData.GetInt("armorPenitrationMultiplicity", 3);
+            //GameData.Instance.healMultiplicity = gameData.GetInt("healMultiplicity", 2);
+            //GameData.Instance.healAmount = gameData.GetInt("healAmount", 3);
+            //GameData.Instance.armorBreakDmg = gameData.GetInt("armorBreakDmg", 5);
+            //GameData.Instance.armorBreakMultiplicity = gameData.GetInt("armorBreakMultiplicity", 4);
+            //GameData.Instance.armorPenitrationDmg = gameData.GetInt("armorPenitrationDmg", 4);
+            //GameData.Instance.armorPenitrationMultiplicity = gameData.GetInt("armorPenitrationMultiplicity", 3);
 
-            GameData.Instance.dmgBonus = gameData.GetInt("dmgBonus", 2);
-            GameData.Instance.dmgkBonusMultiplicity = gameData.GetInt("dmgBonusMultiplicity", 2);
+            //GameData.Instance.dmgBonus = gameData.GetInt("dmgBonus", 2);
+            //GameData.Instance.dmgkBonusMultiplicity = gameData.GetInt("dmgBonusMultiplicity", 2);
+            LoadAllTalants();
+        }
+        private void LoadAllTalants()
+        {
+            var types = GameData.Instance.nameToType;
+            var allTalantsBase = GameData.AllTalants;
+            GameData.Instance.allTalants = new Dictionary<TalantType, int[]>();
+            foreach (var k in types.Keys)
+            {
+                var res = gameData.GetString(k, "");
+                if (res == "")
+                {
+                    GameData.Instance.allTalants[types[k]] = new int[4] { allTalantsBase[types[k]].Item1, allTalantsBase[types[k]].Item2, allTalantsBase[types[k]].Item3, allTalantsBase[types[k]].Item4 };
+                }
+                else
+                {
+                    var vals = res.Split(';').Select(v => Int32.Parse(v)).ToArray();
+                    GameData.Instance.allTalants[types[k]] = vals;
+                }
+            }
         }
         private void LoadPlayer()
         {
@@ -318,8 +368,8 @@ namespace MobileGameTest.Data
             EmptyTalant.Instance.txtr = circleIcon;
             if (PlayerData.Instance.playerCollection == null)
             {
-                CreateBaseCollection();
-                //CreateFullCollection();
+                //CreateBaseCollection();
+                CreateFullCollection();
             }
             Player1.Instance.Collection = RestoreCollection(PlayerData.Instance.playerCollection);
             Player1.Instance.Deck = RestoreDeck(PlayerData.Instance.playerDeck);

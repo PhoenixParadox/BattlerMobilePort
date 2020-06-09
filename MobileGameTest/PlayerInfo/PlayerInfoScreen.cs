@@ -125,9 +125,9 @@ namespace MobileGameTest.PlayerInfo
             savedDecks = new TouchButton[3];
             savedDecks[0] = new TouchButton(new Vector2(50, 300), DataManager.Instance.deck1Btn);
             savedDecks[0].Click += SwitchDeck;
-            savedDecks[1] = new TouchButton(new Vector2(250, 300), DataManager.Instance.deck2Btn);
+            savedDecks[1] = new TouchButton(new Vector2(270, 300), DataManager.Instance.deck2Btn);
             savedDecks[1].Click += SwitchDeck;
-            savedDecks[2] = new TouchButton(new Vector2(450, 300), DataManager.Instance.deck3Btn);
+            savedDecks[2] = new TouchButton(new Vector2(490, 300), DataManager.Instance.deck3Btn);
             savedDecks[2].Click += SwitchDeck;
 
             saveCurrentDeck = new TouchButton(new Vector2(100, 100), DataManager.Instance.woodenBtn);

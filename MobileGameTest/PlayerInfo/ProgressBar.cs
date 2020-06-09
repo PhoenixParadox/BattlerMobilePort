@@ -61,16 +61,22 @@ namespace MobileGameTest.PlayerInfo
             m2Pos = new Vector2(650, 805);
         }
 
+        private Goal MakeHalthGoal(int cost, int increaseAmount)
+        {
+            return new Goal() { description = $"дополнительное здоровье\n{increaseAmount} HP", action = () => PlayerData.Instance.MaxHP += increaseAmount };
+        }
+
         public void SetGoals(int currentGoal)
         {
             goals = new Goal[6];
             if (currentGoal == 2)
             {
-                goals[0] = new Goal() { description = "дополнительное здоровье", cost = 10, action = () => PlayerData.Instance.MaxHP += 1 };
-                goals[1] = new Goal() { description = "доплнительное здоровье", cost = 15, action = () => PlayerData.Instance.MaxHP += 1 };
+                goals[0] = MakeHalthGoal(10, 1);
+                //goals[0] = new Goal() { description = "test", cost = 0, action = () => { GameData.Instance.allTalants[TalantType.BaseAttack][0]++; } };
+                goals[1] = MakeHalthGoal(15, 1);
                 goals[2] = new Goal() { description = "базовая атака наносит\nбольше урона", cost = 20, action = () => { GameData.Instance.baseAtckDmg++; Player1.Instance.Reload(); } };
                 goals[3] = new Goal() { description = "базовая защита дает\nбольше DEF", cost = 25, action = () => { GameData.Instance.baseDefAmount++; Player1.Instance.Reload(); } };
-                goals[4] = new Goal() { description = "дополнительное здоровье", cost = 30, action = () => PlayerData.Instance.MaxHP += 1 };
+                goals[4] = MakeHalthGoal(30, 1);
                 goals[5] = new Goal()
                 {
                     description = "открой Взмах мечом",
@@ -88,11 +94,11 @@ namespace MobileGameTest.PlayerInfo
             }
             else if (currentGoal == 3)
             {
-                goals[0] = new Goal() { description = "дополнительное здоровье", cost = 20, action = () => PlayerData.Instance.MaxHP += 2 };
-                goals[1] = new Goal() { description = "дополнительное здоровье", cost = 25, action = () => PlayerData.Instance.MaxHP += 2 };
+                goals[0] = MakeHalthGoal(20, 2);
+                goals[1] = MakeHalthGoal(25, 2);
                 goals[2] = new Goal() { description = "базовая атака наносит\nбольше урона", cost = 30, action = () => { GameData.Instance.baseAtckDmg += 2; Player1.Instance.Reload(); } };
                 goals[3] = new Goal() { description = "базовая защита дает\nбольше DEF", cost = 35, action = () => { GameData.Instance.baseDefAmount += 2; Player1.Instance.Reload(); } };
-                goals[4] = new Goal() { description = "дополнительное здоровье", cost = 40, action = () => PlayerData.Instance.MaxHP += 3 };
+                goals[4] = MakeHalthGoal(40, 2);
                 goals[5] = new Goal()
                 {
                     description = "улучшенный Взмах мечом",
@@ -102,11 +108,11 @@ namespace MobileGameTest.PlayerInfo
             }
             else if (currentGoal == 4)
             {
-                goals[0] = new Goal() { description = "дополнительное здоровье", cost = 30, action = () => PlayerData.Instance.MaxHP += 2 };
-                goals[1] = new Goal() { description = "дополнительное здоровье", cost = 35, action = () => PlayerData.Instance.MaxHP += 2 };
+                goals[0] = MakeHalthGoal(30, 2);
+                goals[1] = MakeHalthGoal(35, 2);
                 goals[2] = new Goal() { description = "базовая атака наносит\nбольше урона", cost = 40, action = () => { GameData.Instance.baseAtckDmg += 2; Player1.Instance.Reload(); } };
                 goals[3] = new Goal() { description = "базовая защита дает\nбольше DEF", cost = 45, action = () => { GameData.Instance.baseDefAmount += 2; Player1.Instance.Reload(); } };
-                goals[4] = new Goal() { description = "дополнительное здоровье", cost = 50, action = () => PlayerData.Instance.MaxHP += 3 };
+                goals[4] = MakeHalthGoal(50, 3);
                 goals[5] = new Goal()
                 {
                     description = "увеличенная кратность\nВзмаха мечом",
@@ -116,11 +122,11 @@ namespace MobileGameTest.PlayerInfo
             }
             else
             {
-                goals[0] = new Goal() { description = "дополнительное здоровье", cost = 40, action = () => PlayerData.Instance.MaxHP += 3 };
-                goals[1] = new Goal() { description = "дополнительное здоровье", cost = 45, action = () => PlayerData.Instance.MaxHP += 3 };
+                goals[0] = MakeHalthGoal(40, 3);
+                goals[1] = MakeHalthGoal(45, 3);
                 goals[2] = new Goal() { description = "базовая атака наносит\nбольше урона", cost = 50, action = () => { GameData.Instance.baseAtckDmg += 2; Player1.Instance.Reload(); } };
                 goals[3] = new Goal() { description = "базовая защита дает\nбольше DEF", cost = 55, action = () => { GameData.Instance.baseDefAmount += 2; Player1.Instance.Reload(); } };
-                goals[4] = new Goal() { description = "дополнительное здоровье", cost = 60, action = () => PlayerData.Instance.MaxHP += 4 };
+                goals[4] = MakeHalthGoal(60, 3);
                 goals[5] = new Goal()
                 {
                     description = "улучшенный Взмах мечом",

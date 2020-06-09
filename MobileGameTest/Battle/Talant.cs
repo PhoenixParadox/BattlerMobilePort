@@ -138,7 +138,7 @@ namespace MobileGameTest.Battle
 
         private static Action<Player, Player> atck = (p1, p2) =>
         {
-            var dmg = p1.DMGBonus + GameData.Instance.baseAtckDmg;
+            var dmg = p1.DMGBonus + GameData.Instance.allTalants[TalantType.BaseAttack][0];
             if (p2.DEF + p2.DMGBuffer >= dmg)
             {
                 if (p2.DMGBuffer >= dmg)
@@ -159,7 +159,7 @@ namespace MobileGameTest.Battle
         };
         private static Action<Player, Player> strongAtck = (p1, p2) =>
         {
-            var dmg = GameData.Instance.strongAtckDmg;
+            var dmg = GameData.Instance.allTalants[TalantType.SwordSwing][0];
             if (p2.DEF + p2.DMGBuffer >= dmg)
             {
                 if (p2.DMGBuffer >= dmg)
@@ -176,22 +176,22 @@ namespace MobileGameTest.Battle
                 p2.DMGBuffer = 0;
             }
         };
-        private static Action<Player, Player> def = (p1, p2) => p1.DEF += GameData.Instance.baseDefAmount;
-        private static Action<Player, Player> heal = (p1, p2) => p1.HP = Math.Min(p1.MaxHP, p1.HP + GameData.Instance.healAmount);
+        private static Action<Player, Player> def = (p1, p2) => p1.DEF += GameData.Instance.allTalants[TalantType.BaseDef][0];
+        private static Action<Player, Player> heal = (p1, p2) => p1.HP = Math.Min(p1.MaxHP, p1.HP + GameData.Instance.allTalants[TalantType.Heal][0]);
         private static Action<Player, Player> armorPenitration = (p1, p2) =>
         {
-            var dmg = GameData.Instance.armorPenitrationDmg  + p1.DMGBonus - p2.DMGBuffer;
+            var dmg = GameData.Instance.allTalants[TalantType.ArmorPenitration][0]  + p1.DMGBonus - p2.DMGBuffer;
             p2.HP -= dmg;
             p1.DMGBonus = 0;
         };
         private static Action<Player, Player> armorBreak = (p1, p2) => 
         {
-            p2.DEF = Math.Max(0, p2.DEF - GameData.Instance.armorBreakDmg - p1.DMGBonus);
+            p2.DEF = Math.Max(0, p2.DEF - GameData.Instance.allTalants[TalantType.ArmorBreak][0] - p1.DMGBonus);
             p1.DMGBonus = 0;
         };
         private static Action<Player, Player> atckBonus = (p1, p2) =>
         {
-            p1.DMGBonus += GameData.Instance.dmgBonus;
+            p1.DMGBonus += GameData.Instance.allTalants[TalantType.AtckBonus][0];
         };
 
         public static Talant BaseAttack 
@@ -202,9 +202,9 @@ namespace MobileGameTest.Battle
                 {
                     action = atck,
                     txtr = DataManager.Instance.baseAtck,
-                    description = $"АТАКА, НАНОСЯЩАЯ {GameData.Instance.baseAtckDmg} DMG",
-                    shortDescription = $"{GameData.Instance.baseAtckDmg} DMG",
-                    multiplicity = 8,
+                    description = $"АТАКА, НАНОСЯЩАЯ {GameData.Instance.allTalants[TalantType.BaseAttack][0]} DMG",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.BaseAttack][0]} DMG",
+                    multiplicity = GameData.Instance.allTalants[TalantType.BaseAttack][1],
                     type = TalantType.BaseAttack 
                 };
             }
@@ -217,9 +217,9 @@ namespace MobileGameTest.Battle
                 { 
                     action = def,
                     txtr = DataManager.Instance.baseDef, 
-                    description = $"ДАЕТ {GameData.Instance.baseDefAmount} DEF",
-                    shortDescription = $"{GameData.Instance.baseDefAmount} DEF",
-                    multiplicity = 8, 
+                    description = $"ДАЕТ {GameData.Instance.allTalants[TalantType.BaseDef][0]} DEF",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.BaseDef][0]} DEF",
+                    multiplicity = GameData.Instance.allTalants[TalantType.BaseDef][1], 
                     type = TalantType.BaseDef
                 };
             }
@@ -232,9 +232,9 @@ namespace MobileGameTest.Battle
                 {
                     action = strongAtck, 
                     txtr = DataManager.Instance.strongAtck, 
-                    description = "БЫСТРЫЙ И МОЩНЫЙ ВЗМАХ,\n" + $"НАНОСЯЩИЙ {GameData.Instance.strongAtckDmg} DMG\nБОНУС К АТАКЕ НЕ РАБОТАЕТ\nНА ЭТУ СПОСОБНОСТЬ",
-                    shortDescription = $"{GameData.Instance.strongAtckDmg} DMG",
-                    multiplicity = GameData.Instance.swordSwingMultiplicity, 
+                    description = "БЫСТРЫЙ И МОЩНЫЙ ВЗМАХ,\n" + $"НАНОСЯЩИЙ {GameData.Instance.allTalants[TalantType.SwordSwing][0]} DMG\nБОНУС К АТАКЕ НЕ РАБОТАЕТ\nНА ЭТУ СПОСОБНОСТЬ",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.SwordSwing][0]} DMG",
+                    multiplicity = GameData.Instance.allTalants[TalantType.SwordSwing][1], 
                     type = TalantType.SwordSwing 
                 }; 
             }
@@ -247,9 +247,9 @@ namespace MobileGameTest.Battle
                 {
                     action = armorBreak,
                     txtr = DataManager.Instance.armorBreakAtck,
-                    description = "СОКРУШАЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.armorBreakDmg} DMG БРОНЕ",
-                    shortDescription = $"{GameData.Instance.armorBreakDmg} DMG БРОНЕ",
-                    multiplicity = GameData.Instance.armorBreakMultiplicity,
+                    description = "СОКРУШАЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.allTalants[TalantType.ArmorBreak][0]} DMG БРОНЕ",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorBreak][0]} DMG БРОНЕ",
+                    multiplicity = GameData.Instance.allTalants[TalantType.ArmorBreak][1],
                     type = TalantType.ArmorBreak
                 };
             }
@@ -262,9 +262,9 @@ namespace MobileGameTest.Battle
                 {
                     action = armorPenitration,
                     txtr = DataManager.Instance.armorPenitrationAtck,
-                    description = "КОЛЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.armorPenitrationDmg} DMG\nИГНОРИРУЕТ БРОНЮ",
-                    shortDescription = $"{GameData.Instance.armorPenitrationDmg} DMG СКВОЗЬ БРОНЮ",
-                    multiplicity = GameData.Instance.armorPenitrationMultiplicity,
+                    description = "КОЛЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG\nИГНОРИРУЕТ БРОНЮ",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG СКВОЗЬ БРОНЮ",
+                    multiplicity = GameData.Instance.allTalants[TalantType.ArmorPenitration][1],
                     type = TalantType.ArmorPenitration
                 };
             }
@@ -277,9 +277,9 @@ namespace MobileGameTest.Battle
                 {
                     action = heal,
                     txtr = DataManager.Instance.heal,
-                    description = $"ВОССТАНОВЛИВАЕТ {GameData.Instance.healAmount } HP",
-                    shortDescription = $"+ {GameData.Instance.healAmount} HP",
-                    multiplicity = GameData.Instance.healMultiplicity,
+                    description = $"ВОССТАНОВЛИВАЕТ {GameData.Instance.allTalants[TalantType.Heal][0] } HP",
+                    shortDescription = $"+ {GameData.Instance.allTalants[TalantType.Heal][0]} HP",
+                    multiplicity = GameData.Instance.allTalants[TalantType.Heal][1],
                     type = TalantType.Heal
                 };
             }
@@ -292,9 +292,9 @@ namespace MobileGameTest.Battle
                 {
                     action = atckBonus,
                     txtr = DataManager.Instance.dmgBonus,
-                    description = $"+ {GameData.Instance.dmgBonus} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
-                    shortDescription = $"+ {GameData.Instance.dmgBonus} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
-                    multiplicity = GameData.Instance.dmgkBonusMultiplicity,
+                    description = $"+ {GameData.Instance.allTalants[TalantType.AtckBonus][0]} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
+                    shortDescription = $"+ {GameData.Instance.allTalants[TalantType.AtckBonus][0]} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
+                    multiplicity = GameData.Instance.allTalants[TalantType.AtckBonus][1],
                     type = TalantType.AtckBonus
                 };
             }
