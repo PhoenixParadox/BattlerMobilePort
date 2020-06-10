@@ -41,6 +41,7 @@ namespace MobileGameTest.Battle
         public Texture2D txtr;
         public string description;
         public string shortDescription;
+        public string name;
         public int multiplicity;
         public TalantType type;
     }
@@ -205,7 +206,8 @@ namespace MobileGameTest.Battle
                     description = $"АТАКА, НАНОСЯЩАЯ {GameData.Instance.allTalants[TalantType.BaseAttack][0]} DMG",
                     shortDescription = $"{GameData.Instance.allTalants[TalantType.BaseAttack][0]} DMG",
                     multiplicity = GameData.Instance.allTalants[TalantType.BaseAttack][1],
-                    type = TalantType.BaseAttack 
+                    type = TalantType.BaseAttack,
+                    name = "УДАР МЕЧОМ"
                 };
             }
         }
@@ -220,7 +222,8 @@ namespace MobileGameTest.Battle
                     description = $"ДАЕТ {GameData.Instance.allTalants[TalantType.BaseDef][0]} DEF",
                     shortDescription = $"{GameData.Instance.allTalants[TalantType.BaseDef][0]} DEF",
                     multiplicity = GameData.Instance.allTalants[TalantType.BaseDef][1], 
-                    type = TalantType.BaseDef
+                    type = TalantType.BaseDef,
+                    name = "УКРЫТИЕ ЩИТОМ"
                 };
             }
         }
@@ -235,7 +238,8 @@ namespace MobileGameTest.Battle
                     description = "БЫСТРЫЙ И МОЩНЫЙ ВЗМАХ,\n" + $"НАНОСЯЩИЙ {GameData.Instance.allTalants[TalantType.SwordSwing][0]} DMG\nБОНУС К АТАКЕ НЕ РАБОТАЕТ\nНА ЭТУ СПОСОБНОСТЬ",
                     shortDescription = $"{GameData.Instance.allTalants[TalantType.SwordSwing][0]} DMG",
                     multiplicity = GameData.Instance.allTalants[TalantType.SwordSwing][1], 
-                    type = TalantType.SwordSwing 
+                    type = TalantType.SwordSwing,
+                    name = "ВЗМАХ МЕЧОМ"
                 }; 
             }
         }
@@ -248,9 +252,10 @@ namespace MobileGameTest.Battle
                     action = armorBreak,
                     txtr = DataManager.Instance.armorBreakAtck,
                     description = "СОКРУШАЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.allTalants[TalantType.ArmorBreak][0]} DMG БРОНЕ",
-                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorBreak][0]} DMG БРОНЕ",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorBreak][0]} DMG\nБРОНЕ",
                     multiplicity = GameData.Instance.allTalants[TalantType.ArmorBreak][1],
-                    type = TalantType.ArmorBreak
+                    type = TalantType.ArmorBreak,
+                    name = "УДАР БУЛАВОЙ"
                 };
             }
         }
@@ -263,9 +268,10 @@ namespace MobileGameTest.Battle
                     action = armorPenitration,
                     txtr = DataManager.Instance.armorPenitrationAtck,
                     description = "КОЛЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG\nИГНОРИРУЕТ БРОНЮ",
-                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG СКВОЗЬ БРОНЮ",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG\nСКВОЗЬ БРОНЮ",
                     multiplicity = GameData.Instance.allTalants[TalantType.ArmorPenitration][1],
-                    type = TalantType.ArmorPenitration
+                    type = TalantType.ArmorPenitration,
+                    name = "ОСТРОЕ ЛЕЗВИЕ"
                 };
             }
         }
@@ -280,7 +286,8 @@ namespace MobileGameTest.Battle
                     description = $"ВОССТАНОВЛИВАЕТ {GameData.Instance.allTalants[TalantType.Heal][0] } HP",
                     shortDescription = $"+ {GameData.Instance.allTalants[TalantType.Heal][0]} HP",
                     multiplicity = GameData.Instance.allTalants[TalantType.Heal][1],
-                    type = TalantType.Heal
+                    type = TalantType.Heal,
+                    name = "ИСТОЧНИК ЖИЗНИ"
                 };
             }
         }
@@ -295,7 +302,8 @@ namespace MobileGameTest.Battle
                     description = $"+ {GameData.Instance.allTalants[TalantType.AtckBonus][0]} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
                     shortDescription = $"+ {GameData.Instance.allTalants[TalantType.AtckBonus][0]} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
                     multiplicity = GameData.Instance.allTalants[TalantType.AtckBonus][1],
-                    type = TalantType.AtckBonus
+                    type = TalantType.AtckBonus,
+                    name = "ПРИЛИВ СИЛ"
                 };
             }
         }

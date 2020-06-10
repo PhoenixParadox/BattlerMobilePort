@@ -38,7 +38,10 @@ namespace MobileGameTest.Shop
     {
         public static Dictionary<int, Item> dict = new Dictionary<int, Item>
         {
-            { 20, new Item(){cost = 300, description = "Рыбий король", type = ItemType.Skin, txtr = DataManager.Instance.Skins[1], id = 20} },
+            { 1001, new Item(){cost = 300, description = "Рыбий король", type = ItemType.Skin, txtr = DataManager.Instance.SkinsAndPortraits[1001].Item1, id = 1001} },
+            { 1002, new Item(){ cost = 500, description = "BLUE", type = ItemType.Skin, txtr = DataManager.Instance.SkinsAndPortraits[1002].Item1, id = 1002} },
+            { 1003, new Item(){ cost = 1000, description = "DROGO", type = ItemType.Skin, txtr = DataManager.Instance.SkinsAndPortraits[1003].Item1, id = 1003} },
+            { 1004, new Item(){ cost = 750, description = "DINO", type = ItemType.Skin, txtr = DataManager.Instance.SkinsAndPortraits[1004].Item1, id = 1004} },
             { 1, new Item(){ cost = 50, description = "Зелье защиты:\n начни бой с 5 DEF", type = ItemType.DEFPotion, id = 1} },
             { 2, new Item(){ cost = 75, description = "Зелье охраны:\n первый удар нанесет на 3 меньше DMG", type = ItemType.ProtPotion, id = 2} },
             { 3,  new Item(){ cost = 100, description = "Зелье силы:\n первая атака нанесет на 3 больше DMG", type = ItemType.ATCKPotion, id = 3} }
@@ -46,7 +49,7 @@ namespace MobileGameTest.Shop
 
         public static Dictionary<int, ItemType> idToType = new Dictionary<int, ItemType>
         {
-            { 20, ItemType.Skin },
+            { 1001, ItemType.Skin },
             { 1, ItemType.DEFPotion },
             { 2, ItemType.ProtPotion },
             { 3, ItemType.ATCKPotion }

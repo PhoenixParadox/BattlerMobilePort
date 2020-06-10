@@ -42,9 +42,12 @@ namespace MobileGameTest.Shop
         public List<Item> items;
         public TouchButton[] tabs;
         private ShopTabs activeTab;
-        private List<InvisibleButton> skinsPoints;
+        //private List<InvisibleButton> skinsPoints;
         private List<InvisibleButton> toRemove;
         private InvisibleButton[] SellItemButtons;
+
+        private InvisibleButton[] SellSkinButtons;
+        public List<Item> skins;
 
         private ItemShop()
         {
@@ -58,10 +61,10 @@ namespace MobileGameTest.Shop
 
             toRemove = new List<InvisibleButton>();
 
-            skinsPoints = new List<InvisibleButton>();
-            var b1 = new InvisibleButton(new Rectangle(30, 440, 100, 150));
-            b1.Click = SellSkin;
-            skinsPoints.Add(b1);
+            //skinsPoints = new List<InvisibleButton>();
+            //var b1 = new InvisibleButton(new Rectangle(30, 440, 100, 150));
+            //b1.Click = SellSkin;
+            //skinsPoints.Add(b1);
 
             tabs = new TouchButton[2];
             tabs[0] = new TouchButton(new Vector2(90, 360), DataManager.Instance.woodenBtn);
@@ -71,6 +74,11 @@ namespace MobileGameTest.Shop
             if (items != null)
             {
                 MakeItemButtons();
+            }
+
+            if (skins != null)
+            {
+                MakeSkinButtons();
             }
         }
 
@@ -100,7 +108,7 @@ namespace MobileGameTest.Shop
                     var pos = new Vector2(30, 440);
                     var pos1 = new Vector2(pos.X + 100, pos.Y + 10);
                     var pos3 = new Vector2(pos.X - 5, pos.Y + 20);
-                    foreach (var i in items.Where(i => i.type != ItemType.Skin))
+                    foreach (var i in items)
                     {
                         game.spriteBatch.Draw(DataManager.Instance.shopItemIcon, pos);
                         game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, i.description, pos1, Color.White);
@@ -112,11 +120,16 @@ namespace MobileGameTest.Shop
                     break;
                 case (ShopTabs.Skins):
                     var pos2 = new Vector2(30, 440);
-                    foreach (var i in items.Where(i => i.type == ItemType.Skin))
+                    foreach (var i in skins)
                     {
                         game.spriteBatch.Draw(i.txtr, pos2, scale: new Vector2(0.5f));
                         game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, i.cost.ToString(), new Vector2(pos2.X + 30, pos2.Y + 160), Color.Yellow);
-                        pos2.Y += 100;
+                        pos2.X += 200;
+                        if (pos2.X >= 600)
+                        {
+                            pos2.X = 30;
+                            pos2.Y += 200;
+                        }
                     };
                     break;
             }
@@ -130,6 +143,7 @@ namespace MobileGameTest.Shop
                 this.game = game as Game1;
             }
             MakeItemButtons();
+            MakeSkinButtons();
         }
 
         private void MakeItemButtons()
@@ -143,6 +157,25 @@ namespace MobileGameTest.Shop
                 btn.Click += SellItem;
                 SellItemButtons[ind++] = btn;
                 pos.Y += 100;
+            };
+        }
+
+        private void MakeSkinButtons()
+        {
+            SellSkinButtons = new InvisibleButton[skins.Count()];
+            var pos = new Vector2(30, 440);
+            var ind = 0;
+            foreach (var i in skins)
+            {
+                var btn = new InvisibleButton(new Rectangle((int)pos.X, (int)pos.Y, DataManager.Instance.SkinsAndPortraits[i.id].Item1.Width / 2, DataManager.Instance.SkinsAndPortraits[i.id].Item1.Height / 2));
+                btn.Click += SellSkin;
+                SellSkinButtons[ind++] = btn;
+                pos.X += 200;
+                if (pos.X >= 600)
+                {
+                    pos.Y += 200;
+                    pos.X = 30;
+                }
             };
         }
 
@@ -170,13 +203,27 @@ namespace MobileGameTest.Shop
 
         private void SellSkin(object sender, EventArgs e)
         {
-            if (Player1.Instance.points < ItemBase.dict[20].cost)
+            var ind = 0;
+            for (int i = 0; i < SellSkinButtons.Length; i++)
+            {
+                if (((InvisibleButton)sender) == SellSkinButtons[i])
+                {
+                    ind = i;
+                    break;
+                }
+            }
+
+            if (Player1.Instance.points < ItemBase.dict[skins[ind].id].cost)
                 return;
-            PlayerData.Instance.points -= ItemBase.dict[20].cost;
-            PlayerData.Instance.currentSkin = 1;
-            PlayerData.Instance.maxUnlockedSkin = 1;
+            PlayerData.Instance.points -= ItemBase.dict[skins[ind].id].cost;
+            //PlayerData.Instance.currentSkin = 1;
+            //PlayerData.Instance.maxUnlockedSkin = 1;
+            PlayerData.Instance.unlockedSkins.Add(skins[ind].id);
+            GameData.Instance.shopSkins.Remove(skins[ind].id);
             toRemove.Add(sender as InvisibleButton);
-            items.Remove(ItemBase.dict[20]);
+            var skinToRemove = skins[ind];
+            skins.Remove(skinToRemove);
+            MakeSkinButtons();
         }
 
         private void BackToMenu(object sender, EventArgs e)
@@ -201,13 +248,10 @@ namespace MobileGameTest.Shop
             switch (activeTab)
             {
                 case (ShopTabs.Skins):
-                    foreach (var b in skinsPoints)
-                        b.Update(gameTime);
-                    foreach (var t in toRemove)
+                    foreach (var b in SellSkinButtons)
                     {
-                        skinsPoints.Remove(t);
+                        b.Update(gameTime);
                     }
-                    toRemove = new List<InvisibleButton>();
                     break;
                 case (ShopTabs.Items):
                     foreach (var s in SellItemButtons)

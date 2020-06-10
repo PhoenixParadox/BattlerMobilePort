@@ -75,6 +75,8 @@ namespace MobileGameTest.PlayerInfo
         private TouchButton[] savedDecks;
         private TouchButton saveCurrentDeck;
 
+        private TouchButton exitBtn;
+
         private PlayerInfoScreen()
         {
             Load();
@@ -83,7 +85,7 @@ namespace MobileGameTest.PlayerInfo
         private void Load()
         {
             components = new List<TouchButton>();
-            components.Add(new TouchButton(new Vector2(680, 20), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu });
+            exitBtn = new TouchButton(new Vector2(680, 20), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu };
             components.Add(new TouchButton(new Vector2(240, 480), DataManager.Instance.rightArrow) { Click = SwitchSkinRight });
             components.Add(new TouchButton(new Vector2(20, 480), DataManager.Instance.leftArrow) { Click = SwitchSkinLeft });
             activeTab = PlayerInfoTabs.Progress;
@@ -125,9 +127,9 @@ namespace MobileGameTest.PlayerInfo
             savedDecks = new TouchButton[3];
             savedDecks[0] = new TouchButton(new Vector2(50, 300), DataManager.Instance.deck1Btn);
             savedDecks[0].Click += SwitchDeck;
-            savedDecks[1] = new TouchButton(new Vector2(270, 300), DataManager.Instance.deck2Btn);
+            savedDecks[1] = new TouchButton(new Vector2(300, 300), DataManager.Instance.deck2Btn);
             savedDecks[1].Click += SwitchDeck;
-            savedDecks[2] = new TouchButton(new Vector2(490, 300), DataManager.Instance.deck3Btn);
+            savedDecks[2] = new TouchButton(new Vector2(540, 300), DataManager.Instance.deck3Btn);
             savedDecks[2].Click += SwitchDeck;
 
             saveCurrentDeck = new TouchButton(new Vector2(100, 100), DataManager.Instance.woodenBtn);
@@ -166,6 +168,7 @@ namespace MobileGameTest.PlayerInfo
                 t.Draw(game.spriteBatch);
             }
 
+            exitBtn.Draw(game.spriteBatch);
             switch (activeTab)
             {
                 case (PlayerInfoTabs.Progress):
@@ -179,7 +182,6 @@ namespace MobileGameTest.PlayerInfo
 
                     foreach (var e in components)
                         e.Draw(game.spriteBatch);
-
                     progressBar.Draw(game.spriteBatch);
                     goalButton.Draw(game.spriteBatch);
                     break;
@@ -219,7 +221,8 @@ namespace MobileGameTest.PlayerInfo
                     foreach (var t in collectionView)
                     {
                         game.spriteBatch.Draw(t.txtr, new Vector2(k, n));
-                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.description, new Vector2(k + 140, n + 20), Color.White);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.name, new Vector2(k + 140, n + 5), Color.Yellow);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.description, new Vector2(k + 140, n + 35), Color.White);
                         game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.multiplicity.ToString(), new Vector2(k - 30, n + 30), Color.White);
                         n += 150;
                         index++;
@@ -236,7 +239,8 @@ namespace MobileGameTest.PlayerInfo
                     foreach (var t in collectionView)
                     {
                         game.spriteBatch.Draw(t.txtr, new Vector2(l, m));
-                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.description, new Vector2(l + 140, m + 20), Color.White);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.name, new Vector2(l + 140, m + 5), Color.Yellow);
+                        game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, t.description, new Vector2(l + 140, m + 35), Color.White);
                         game.spriteBatch.DrawString(DataManager.Instance.playerMenuFont, NumberOfAvailableCopies(ind).ToString(), new Vector2(l - 30, m + 30), Color.White);
                         m += 150;
                         ind = (ind + 1) % Player1.Instance.Collection.Count;
@@ -324,28 +328,16 @@ namespace MobileGameTest.PlayerInfo
 
         private void SwitchSkinLeft(object sender, EventArgs e)
         {
-            if (PlayerData.Instance.currentSkin == 0)
-            {
-                PlayerData.Instance.currentSkin = PlayerData.Instance.maxUnlockedSkin;
-            }
-            else
-            {
-                PlayerData.Instance.currentSkin--;
-            }
+            PlayerData.Instance.currentSkin = (PlayerData.Instance.currentSkin == PlayerData.Instance.unlockedSkins.Count - 1) ? 0 : PlayerData.Instance.currentSkin++;
             Player1.Instance.Initialize();
+            this.Initialize(game);
         }
 
         private void SwitchSkinRight(object sender, EventArgs e)
         {
-            if (PlayerData.Instance.currentSkin == PlayerData.Instance.maxUnlockedSkin)
-            {
-                PlayerData.Instance.currentSkin = 0;
-            }
-            else
-            {
-                PlayerData.Instance.currentSkin++;
-            }
+            PlayerData.Instance.currentSkin = (PlayerData.Instance.currentSkin + 1) % PlayerData.Instance.unlockedSkins.Count;
             Player1.Instance.Initialize();
+            this.Initialize(game);
         }
 
         private void goalClick(object sender, EventArgs e)
@@ -364,7 +356,11 @@ namespace MobileGameTest.PlayerInfo
             progressBar.currentGoal = (progressBar.currentGoal + 1) % progressBar.goals.Length;
             GameData.Instance.currentGoal = progressBar.currentGoal;
             PlayerData.Instance.points -= progressBar.goals[progressBar.currentGoal].cost + progressBar.costCoeffitient;
-            progressBar.SetGoals(progressBar.MileStones.Item2);
+            //progressBar.SetGoals(progressBar.MileStones.Item2);
+            if (progressBar.currentGoal == 0)
+            {
+                progressBar.CreateGoals();
+            }
         }
 
         private void BackToMenu(object sender, EventArgs e)
@@ -397,6 +393,7 @@ namespace MobileGameTest.PlayerInfo
                     b.Update(gameTime);
                 }
             }
+            exitBtn.Update(gameTime);
             if (activeTab == PlayerInfoTabs.Deck)
             {
                 foreach (var b in savedDecks)

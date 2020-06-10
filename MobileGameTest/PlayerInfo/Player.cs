@@ -91,8 +91,11 @@ namespace MobileGameTest.PlayerInfo
 
         public void Initialize()
         {
-            sprite = new Sprite(DataManager.Instance.Skins[PlayerData.Instance.currentSkin]);
-            portraitSprite = new Sprite(DataManager.Instance.Portraits[PlayerData.Instance.currentSkin]);
+            //sprite = new Sprite(DataManager.Instance.Skins[PlayerData.Instance.currentSkin]);
+            //portraitSprite = new Sprite(DataManager.Instance.Portraits[PlayerData.Instance.currentSkin]);
+            var ind = PlayerData.Instance.unlockedSkins[PlayerData.Instance.currentSkin];
+            sprite = new Sprite(DataManager.Instance.SkinsAndPortraits[ind].Item1);
+            portraitSprite = new Sprite(DataManager.Instance.SkinsAndPortraits[ind].Item2);
         }
 
         public void Reload()
@@ -109,6 +112,12 @@ namespace MobileGameTest.PlayerInfo
                 PlayerData.Instance.playerDeck[i] = Deck[i].type;
             }
             
+        }
+
+        public void AddTalant(TalantType t)
+        {
+            Collection.Add(TalantFactory.GetTalant(t));
+            Reload();
         }
 
         public void SetDeck()

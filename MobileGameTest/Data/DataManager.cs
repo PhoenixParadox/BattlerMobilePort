@@ -57,12 +57,12 @@ namespace MobileGameTest.Data
             #endregion
 
 
-            //CreateGameData();
-            //CreatePlayerData();
+            CreatePlayerData();
+            CreateGameData();
 
             try
             {
-                Load();
+                //Load();
             }
             catch
             {
@@ -77,15 +77,17 @@ namespace MobileGameTest.Data
         public void CreatePlayerData()
         {
             PlayerData.Instance.Name = "nickname";
-            PlayerData.Instance.points =  10000;
+            PlayerData.Instance.points =  100000;
             PlayerData.Instance.trophies = 0;
             PlayerData.Instance.maxUnlockedSkin = 0;
             PlayerData.Instance.currentSkin = 0;
             PlayerData.Instance.MaxHP = 25;
+            PlayerData.Instance.unlockedSkins = new List<int>() { 1000 };
         }
         public void CreateGameData()
         {
-            GameData.Instance.shopItems = new List<int>() { 1, 2, 3, 20 };
+            GameData.Instance.shopItems = new List<int>() { 1, 2, 3 };
+            GameData.Instance.shopSkins = new List<int>() { 1001, 1002, 1003, 1004 };
             GameData.Instance.milestones = new Milestones(1, 2);
             GameData.Instance.currentGoal = 0;
             GameData.Instance.baseAtckDmg = 5;
@@ -172,6 +174,16 @@ namespace MobileGameTest.Data
                 }
             }
             gameEdit.PutString("shopItems", str);
+            str = "";
+            for (int i = 0; i < GameData.Instance.shopSkins.Count; i++)
+            {
+                str += GameData.Instance.shopSkins[i];
+                if (i != GameData.Instance.shopSkins.Count - 1)
+                {
+                    str += ";";
+                }
+            }
+            gameEdit.PutString("shopSkins", str);
             gameEdit.PutInt("currentGoal", GameData.Instance.currentGoal);
             //gameEdit.PutInt("baseAtckDmg", GameData.Instance.baseAtckDmg);
             //gameEdit.PutInt("baseDefAmount", GameData.Instance.baseDefAmount);
@@ -264,6 +276,13 @@ namespace MobileGameTest.Data
                 }
             }
             playerEdit.PutString("deck3", str);
+            str = "";
+            for (int i = 0; i < PlayerData.Instance.unlockedSkins.Count; i++)
+            {
+                var temp = PlayerData.Instance.unlockedSkins[i].ToString();
+                str += (i == PlayerData.Instance.unlockedSkins.Count - 1) ? temp : temp + ";";  
+            }
+            playerEdit.PutString("unlockedSkins", str);
             playerEdit.Commit();
         }
         #endregion
@@ -274,13 +293,16 @@ namespace MobileGameTest.Data
         {
             LoadGame();
             LoadPlayer();
+            PlayerData.Instance.points += 10000;
         }
         private void LoadGame()
         {
             var temp = gameData.GetString("milestones", "1;2").Split(';');
             GameData.Instance.milestones = new Milestones(Int32.Parse(temp[0]), Int32.Parse(temp[1]));
-            temp = gameData.GetString("shopItems", "1;2;3;20").Split(';');
+            temp = gameData.GetString("shopItems", "1;2;3").Split(';');
             GameData.Instance.shopItems = temp.Select(i => Int32.Parse(i)).ToList();
+            temp = gameData.GetString("shopSkins", "1001;1002;1003;1004").Split(';');
+            GameData.Instance.shopSkins = temp.Where(i => i != "").Select(i => Int32.Parse(i)).ToList();
             //LoadShop();
             GameData.Instance.currentGoal = gameData.GetInt("currentGoal", 0);
             //GameData.Instance.baseAtckDmg = gameData.GetInt("baseAtckDmg", 5);
@@ -357,6 +379,12 @@ namespace MobileGameTest.Data
             {
                 PlayerData.Instance.savedDeck3.Add((TalantType)(Int32.Parse(c)));
             }
+            temp = playerData.GetString("unlockedSkins", "1000").Split(';');
+            PlayerData.Instance.unlockedSkins = new List<int>();
+            foreach (var i in temp)
+            {
+                PlayerData.Instance.unlockedSkins.Add(Int32.Parse(i));
+            }
         }
 
         public void LoadGameData()
@@ -368,8 +396,8 @@ namespace MobileGameTest.Data
             EmptyTalant.Instance.txtr = circleIcon;
             if (PlayerData.Instance.playerCollection == null)
             {
-                //CreateBaseCollection();
-                CreateFullCollection();
+                CreateBaseCollection();
+                //CreateFullCollection();
             }
             Player1.Instance.Collection = RestoreCollection(PlayerData.Instance.playerCollection);
             Player1.Instance.Deck = RestoreDeck(PlayerData.Instance.playerDeck);
@@ -382,11 +410,14 @@ namespace MobileGameTest.Data
         public void LoadShop()
         {
             ItemShop.Instance.items = new List<Item>();
+            ItemShop.Instance.skins = new List<Item>();
             foreach (var i in GameData.Instance.shopItems)
             {
-                if (PlayerData.Instance.maxUnlockedSkin == 1 && i == 20)
-                    continue;
-                ItemShop.Instance.items.Add(ItemBase.dict[i]);
+               ItemShop.Instance.items.Add(ItemBase.dict[i]);
+            }
+            foreach (var i in GameData.Instance.shopSkins)
+            {
+                ItemShop.Instance.skins.Add(ItemBase.dict[i]);
             }
         }
 
@@ -463,6 +494,8 @@ namespace MobileGameTest.Data
         public Texture2D plrPortraitTxtr;
         public Texture2D plrTxtr1;
         public Texture2D plrPortraitTxtr1;
+
+        public Dictionary<int, Tuple<Texture2D, Texture2D>> SkinsAndPortraits;
         #endregion
 
         #region player info
@@ -575,6 +608,16 @@ namespace MobileGameTest.Data
             armorBreakAtck = contentManager.Load<Texture2D>("TalantIcons/armorBreakSkill");
             #endregion
             #region player
+            SkinsAndPortraits = new Dictionary<int, Tuple<Texture2D, Texture2D>>()
+            {
+                { 1000, Tuple.Create(contentManager.Load<Texture2D>("Player/Cat1"), contentManager.Load<Texture2D>("Player/catPortrait")) },
+                { 1001, Tuple.Create(contentManager.Load<Texture2D>("Player/FishKing"), contentManager.Load<Texture2D>("Player/FishKingPortrait")) },
+                { 1002, Tuple.Create(contentManager.Load<Texture2D>("Player/blueFluffyCreature"), contentManager.Load<Texture2D>("Player/blueFluffyCreaturePortrait"))},
+                { 1003, Tuple.Create(contentManager.Load<Texture2D>("Player/drogo"), contentManager.Load<Texture2D>("Player/drogoPortrait"))},
+                { 1004, Tuple.Create(contentManager.Load<Texture2D>("Player/dinasaur"), contentManager.Load<Texture2D>("Player/dinoPortrait"))}
+            };
+            
+
             Skins[0] = contentManager.Load<Texture2D>("Player/Cat1");
             Portraits[0] = contentManager.Load<Texture2D>("Player/catPortrait");
             Skins[1] = contentManager.Load<Texture2D>("Player/FishKing");

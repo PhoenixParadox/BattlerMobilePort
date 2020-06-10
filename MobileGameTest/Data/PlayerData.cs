@@ -30,6 +30,13 @@ namespace MobileGameTest.Data
         {
             instance = data;
         }
+
+        public void AddTalant(TalantType t)
+        {
+            playerCollection.Add(t);
+
+        }
+        public List<int> unlockedSkins;
         public int currentSkin;
         public int maxUnlockedSkin;
         public int points;

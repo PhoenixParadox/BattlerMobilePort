@@ -57,6 +57,9 @@ namespace MobileGameTest.Data
             { TalantType.SwordSwing, Tuple.Create(10, 2, 18, 5)}
             
         };
+        public static List<TalantType> BronzeTier = new List<TalantType> { TalantType.BaseAttack, TalantType.BaseDef, TalantType.ArmorBreak };
+        public static List<TalantType> SilverTier = new List<TalantType> { TalantType.SwordSwing, TalantType.Heal };
+        public static List<TalantType> GoldTier = new List<TalantType> { TalantType.AtckBonus, TalantType.ArmorPenitration };
 
         public void Load(GameData data)
         {
@@ -64,6 +67,7 @@ namespace MobileGameTest.Data
         }
 
         public List<int> shopItems;
+        public List<int> shopSkins;
         public Milestones milestones;
         public int currentGoal;
 
@@ -87,36 +91,17 @@ namespace MobileGameTest.Data
         public List<TalantType> unlockedTalants;
 
 
+
+
         public void UpgradeAction(TalantType type)
         {
-            allTalants[type][0] = Math.Min(allTalants[type][0] + 1, allTalants[type][2]);
+            //allTalants[type][0] = Math.Min(allTalants[type][0] + 1, allTalants[type][2]);
+            allTalants[type][0] += PlayerData.Instance.MaxHP / 100 + 1;
         }
-        //public void UpgradeAction(TalantType type)
-        //{
-        //    switch (type)
-        //    {
-        //        case (TalantType.BaseAttack):
-        //            baseAtckDmg++;
-        //            break;
-        //        case (TalantType.BaseDef):
-        //            baseDefAmount++;
-        //            break;
-        //        case (TalantType.ArmorPenitration):
-        //            armorPenitrationDmg++;
-        //            break;
-        //        case (TalantType.ArmorBreak):
-        //            armorBreakDmg++;
-        //            break;
-        //        case (TalantType.Heal):
-        //            healAmount++;
-        //            break;
-        //        case (TalantType.SwordSwing):
-        //            strongAtckDmg++;
-        //            break;
-        //        case (TalantType.AtckBonus):
-        //            dmgBonus++;
-        //            break;
-        //    }
-        //}
+        public void UpgradeMultiplicity(TalantType type)
+        {
+            //allTalants[type][1] = Math.Min(allTalants[type][1] + 1, allTalants[type][3]);
+            allTalants[type][1]++;
+        }
     }
 }
