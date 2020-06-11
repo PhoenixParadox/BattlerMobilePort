@@ -57,18 +57,13 @@ namespace MobileGameTest.Shop
         private void Load()
         {
             components = new List<TouchButton>();
-            components.Add(new TouchButton(new Vector2(550, 30), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu });
+            components.Add(new TouchButton(new Vector2(680, 30), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu });
 
             toRemove = new List<InvisibleButton>();
 
-            //skinsPoints = new List<InvisibleButton>();
-            //var b1 = new InvisibleButton(new Rectangle(30, 440, 100, 150));
-            //b1.Click = SellSkin;
-            //skinsPoints.Add(b1);
-
             tabs = new TouchButton[2];
-            tabs[0] = new TouchButton(new Vector2(90, 360), DataManager.Instance.woodenBtn);
-            tabs[1] = new TouchButton(new Vector2(90 + 60 + DataManager.Instance.woodenBtn.Width, 360), DataManager.Instance.woodenBtn);
+            tabs[0] = new TouchButton(new Vector2(90, 540), DataManager.Instance.woodenBtn);
+            tabs[1] = new TouchButton(new Vector2(90 + 60 + DataManager.Instance.woodenBtn.Width, 540), DataManager.Instance.woodenBtn);
             tabs[0].Click = (object sender, EventArgs e) => this.activeTab = ShopTabs.Items;
             tabs[1].Click = (object sender, EventArgs e) => this.activeTab = ShopTabs.Skins;
             if (items != null)
@@ -84,10 +79,8 @@ namespace MobileGameTest.Shop
 
         public override void Draw(GameTime gameTime)
         {
-            //game.spriteBatch.GraphicsDevice.Clear(Color.DarkGray);
-
-            game.spriteBatch.Draw(DataManager.Instance.shopBackground, new Vector2(0, 0));
-            game.spriteBatch.Draw(DataManager.Instance.shopItemsBackground, new Vector2(-5, 402));
+            game.spriteBatch.Draw(DataManager.Instance.shopBackground, new Vector2(0, 0), scale: new Vector2(1.5f));
+            game.spriteBatch.Draw(DataManager.Instance.menuLowerPanel, new Vector2(-50, 600));
 
             game.spriteBatch.Draw(DataManager.Instance.coinIcon, new Vector2(70, 10));
             game.spriteBatch.DrawString(DataManager.Instance.menuFont, Player1.Instance.points.ToString(), new Vector2(5, 30), Color.LightGoldenrodYellow);
@@ -96,39 +89,36 @@ namespace MobileGameTest.Shop
             foreach (var t in tabs)
             {
                 t.Draw(game.spriteBatch);
-                //if (t.Text != null)
-                //{
-                //    game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, t.Text, new Vector2(t.position.X + 30, t.position.Y + 20), Color.White);
-                //}
             }
 
             switch (activeTab)
             {
                 case (ShopTabs.Items):
-                    var pos = new Vector2(30, 440);
+                    var pos = new Vector2(30, 640);
                     var pos1 = new Vector2(pos.X + 100, pos.Y + 10);
-                    var pos3 = new Vector2(pos.X - 5, pos.Y + 20);
+                    var pos3 = new Vector2(pos.X - 10, pos.Y + 20);
                     foreach (var i in items)
                     {
                         game.spriteBatch.Draw(DataManager.Instance.shopItemIcon, pos);
-                        game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, i.description, pos1, Color.White);
-                        game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, i.cost.ToString(), pos3, Color.Yellow);
+                        game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, i.description, pos1, Color.White);
+                        game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, i.cost.ToString(), pos3, Color.Yellow);
                         pos1.Y += 100;
                         pos.Y += 100;
                         pos3.Y += 100;
                     };
                     break;
                 case (ShopTabs.Skins):
-                    var pos2 = new Vector2(30, 440);
+                    var pos2 = new Vector2(30, 700);
                     foreach (var i in skins)
                     {
                         game.spriteBatch.Draw(i.txtr, pos2, scale: new Vector2(0.5f));
-                        game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, i.cost.ToString(), new Vector2(pos2.X + 30, pos2.Y + 160), Color.Yellow);
-                        pos2.X += 200;
-                        if (pos2.X >= 600)
+                        game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, i.description.ToString(), new Vector2(pos2.X + 30, pos2.Y - 40), Color.Yellow);
+                        game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, i.cost.ToString(), new Vector2(pos2.X + 30, pos2.Y + 160), Color.Yellow);
+                        pos2.X += 250;
+                        if (pos2.X >= 700)
                         {
                             pos2.X = 30;
-                            pos2.Y += 200;
+                            pos2.Y += 300;
                         }
                     };
                     break;
@@ -163,17 +153,17 @@ namespace MobileGameTest.Shop
         private void MakeSkinButtons()
         {
             SellSkinButtons = new InvisibleButton[skins.Count()];
-            var pos = new Vector2(30, 440);
+            var pos = new Vector2(30, 700);
             var ind = 0;
             foreach (var i in skins)
             {
                 var btn = new InvisibleButton(new Rectangle((int)pos.X, (int)pos.Y, DataManager.Instance.SkinsAndPortraits[i.id].Item1.Width / 2, DataManager.Instance.SkinsAndPortraits[i.id].Item1.Height / 2));
                 btn.Click += SellSkin;
                 SellSkinButtons[ind++] = btn;
-                pos.X += 200;
-                if (pos.X >= 600)
+                pos.X += 250;
+                if (pos.X >= 700)
                 {
-                    pos.Y += 200;
+                    pos.Y += 300;
                     pos.X = 30;
                 }
             };
@@ -216,8 +206,6 @@ namespace MobileGameTest.Shop
             if (Player1.Instance.points < ItemBase.dict[skins[ind].id].cost)
                 return;
             PlayerData.Instance.points -= ItemBase.dict[skins[ind].id].cost;
-            //PlayerData.Instance.currentSkin = 1;
-            //PlayerData.Instance.maxUnlockedSkin = 1;
             PlayerData.Instance.unlockedSkins.Add(skins[ind].id);
             GameData.Instance.shopSkins.Remove(skins[ind].id);
             toRemove.Add(sender as InvisibleButton);

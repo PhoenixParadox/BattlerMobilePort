@@ -87,7 +87,7 @@ namespace MobileGameTest.Data
         public void CreateGameData()
         {
             GameData.Instance.shopItems = new List<int>() { 1, 2, 3 };
-            GameData.Instance.shopSkins = new List<int>() { 1001, 1002, 1003, 1004 };
+            GameData.Instance.shopSkins = new List<int>() { 1001, 1002, 1003, 1004, 1005 };
             GameData.Instance.milestones = new Milestones(1, 2);
             GameData.Instance.currentGoal = 0;
             GameData.Instance.baseAtckDmg = 5;
@@ -301,7 +301,7 @@ namespace MobileGameTest.Data
             GameData.Instance.milestones = new Milestones(Int32.Parse(temp[0]), Int32.Parse(temp[1]));
             temp = gameData.GetString("shopItems", "1;2;3").Split(';');
             GameData.Instance.shopItems = temp.Select(i => Int32.Parse(i)).ToList();
-            temp = gameData.GetString("shopSkins", "1001;1002;1003;1004").Split(';');
+            temp = gameData.GetString("shopSkins", "1001;1002;1003;1004;1005").Split(';');
             GameData.Instance.shopSkins = temp.Where(i => i != "").Select(i => Int32.Parse(i)).ToList();
             //LoadShop();
             GameData.Instance.currentGoal = gameData.GetInt("currentGoal", 0);
@@ -614,7 +614,8 @@ namespace MobileGameTest.Data
                 { 1001, Tuple.Create(contentManager.Load<Texture2D>("Player/FishKing"), contentManager.Load<Texture2D>("Player/FishKingPortrait")) },
                 { 1002, Tuple.Create(contentManager.Load<Texture2D>("Player/blueFluffyCreature"), contentManager.Load<Texture2D>("Player/blueFluffyCreaturePortrait"))},
                 { 1003, Tuple.Create(contentManager.Load<Texture2D>("Player/drogo"), contentManager.Load<Texture2D>("Player/drogoPortrait"))},
-                { 1004, Tuple.Create(contentManager.Load<Texture2D>("Player/dinasaur"), contentManager.Load<Texture2D>("Player/dinoPortrait"))}
+                { 1004, Tuple.Create(contentManager.Load<Texture2D>("Player/dinasaur"), contentManager.Load<Texture2D>("Player/dinoPortrait"))},
+                { 1005, Tuple.Create(contentManager.Load<Texture2D>("battle/battleBirdBig"), contentManager.Load<Texture2D>("battle/battleBirdPortrait"))}
             };
             
 
