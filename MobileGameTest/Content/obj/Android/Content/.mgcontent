@@ -49,6 +49,25 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/common/backPanel.jpg</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/common/menuBackground.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/common/woodenPanel.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTask1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTask2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTask3.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTasksFrame.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/Fantasy-library-art.jpg</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/level1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/level1Topic.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/mathTask1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/mathTask2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/mathTasksFrame.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/scroll.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/scrollShiny.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theory1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTask1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTask2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTask3.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTask4.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTask5.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTasksFrame.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/File.spritefont</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/font1.spritefont</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/fonts/battleTitleFont.spritefont</File>
@@ -126,6 +145,25 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/swordSwingIconBigSaturated1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

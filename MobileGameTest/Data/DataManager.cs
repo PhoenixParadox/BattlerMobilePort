@@ -555,6 +555,22 @@ namespace MobileGameTest.Data
         public Texture2D healthPanel1;
         #endregion
 
+        #region education
+        public Texture2D educationBackground;
+        public Texture2D scroll;
+
+        public Texture2D[] theoryTasks;
+        public Texture2D[] mathTasks;
+        public Texture2D[] calcTasks;
+
+        public List<Texture2D> levels;
+        public List<Texture2D> levelTopics;
+        public List<Texture2D> theoryText;
+        public Texture2D theoryTasksFrame;
+        public Texture2D mathTasksFrame;
+        public Texture2D calcTasksFrame;
+        #endregion
+
         private void LoadAssets()
         {            
             #region fonts
@@ -691,7 +707,6 @@ namespace MobileGameTest.Data
             healthPanel1 = contentManager.Load<Texture2D>("battle/healthPanel1");
             #endregion
 
-
             #region loading screen
             loadingAnimation = new Texture2D[4];
             loadingAnimation[0] = contentManager.Load<Texture2D>("loadingScreen/loadingSymbol1");
@@ -701,7 +716,42 @@ namespace MobileGameTest.Data
             loadingMessage = contentManager.Load<Texture2D>("loadingScreen/loadingMessageBig");
             versusScreen = contentManager.Load<Texture2D>("loadingScreen/VersusScreenBig");
             #endregion
-            
+
+            #region education
+            educationBackground = contentManager.Load<Texture2D>("education/Fantasy-library-art");
+            scroll = contentManager.Load<Texture2D>("education/scrollShiny");
+
+            theoryTasks = new Texture2D[5];
+            theoryTasks[0] = contentManager.Load<Texture2D>("education/theoryTask1");
+            theoryTasks[1] = contentManager.Load<Texture2D>("education/theoryTask2");
+            theoryTasks[2] = contentManager.Load<Texture2D>("education/theoryTask3");
+            theoryTasks[3] = contentManager.Load<Texture2D>("education/theoryTask4");
+            theoryTasks[4] = contentManager.Load<Texture2D>("education/theoryTask5");
+
+            mathTasks = new Texture2D[5];
+            mathTasks[0] = contentManager.Load<Texture2D>("education/mathTask1");
+            mathTasks[1] = contentManager.Load<Texture2D>("education/mathTask2");
+
+            calcTasks = new Texture2D[5];
+            calcTasks[0] = contentManager.Load<Texture2D>("education/calcTask1");
+            calcTasks[1] = contentManager.Load<Texture2D>("education/calcTask2");
+            calcTasks[2] = contentManager.Load<Texture2D>("education/calcTask3");
+
+            levels = new List<Texture2D>();
+            levels.Add(contentManager.Load<Texture2D>("education/level1"));
+
+            levelTopics = new List<Texture2D>();
+            levelTopics.Add(contentManager.Load<Texture2D>("education/level1Topic"));
+
+            theoryText = new List<Texture2D>();
+            theoryText.Add(contentManager.Load<Texture2D>("education/theory1"));
+
+            theoryTasksFrame = contentManager.Load<Texture2D>("education/theoryTasksFrame");
+            mathTasksFrame = contentManager.Load<Texture2D>("education/mathTasksFrame");
+            calcTasksFrame = contentManager.Load<Texture2D>("education/calcTasksFrame");
+
+            #endregion
+
         }
     }
 }

@@ -68,8 +68,14 @@
     <Compile Include="Components\TouchButton.cs" />
     <Compile Include="Components\InvisibleButton.cs" />
     <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\EducationData.cs" />
     <Compile Include="Data\GameData.cs" />
     <Compile Include="Data\PlayerData.cs" />
+    <Compile Include="Education\CurrentTaskScreen.cs" />
+    <Compile Include="Education\TheoryScreen.cs" />
+    <Compile Include="Education\EducationalLevel.cs" />
+    <Compile Include="Education\StartEducationalScreen.cs" />
+    <Compile Include="Education\Task.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Menu\LoadingScreen.cs" />
     <Compile Include="Menu\MainMenu.cs" />

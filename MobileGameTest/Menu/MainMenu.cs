@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 using MobileGameTest.Components;
 using MobileGameTest.Data;
+using MobileGameTest.Education;
 using MobileGameTest.PlayerInfo;
 using MobileGameTest.Shop;
 using MobileGameTest.SourceLib;
@@ -109,7 +110,7 @@ namespace MobileGameTest.Menu
         private void SwitchToEducation(object sender, EventArgs e)
         {
             // TODO: переход в меню обучения
-            //game.SwitchState(StartEducationalScreen.Instance);
+            game.SwitchState(StartEducationalScreen.Instance);
         }
 
         public void SwitchToBattle(object sender, EventArgs e)

@@ -160,6 +160,14 @@ namespace MobileGameTest.PlayerInfo
             }
         }
 
+        public void HideKeyBoard()
+        {
+            var pView = game.Services.GetService<View>();
+            InputMethodManager inputMethodManager = game.gameActivity.Application.GetSystemService(Context.InputMethodService) as InputMethodManager;
+            inputMethodManager.HideSoftInputFromWindow(pView.WindowToken, HideSoftInputFlags.None);
+            keyboradDisplayed = false;
+        }
+
         private void SaveDeck(object sender, EventArgs e)
         {
             
