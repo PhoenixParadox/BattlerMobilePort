@@ -4,6 +4,17 @@
   <Platform>Android</Platform>
   <Config />
   <SourceFiles>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/inputButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreature.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreaturePortrait.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/Cat1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/catPortrait.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/dinasaur.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/dinoPortrait.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/drogo.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/drogoPortrait.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/FishKing.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/FishKingPortrait.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/batleButton2.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/closeButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/collectionButton.png</File>
@@ -17,6 +28,8 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/progressButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/rightArrow64.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shop.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shopItemsButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shopSkinsButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/tasksButton2.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/upButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/upgradeButton.png</File>
@@ -53,16 +66,6 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/goToTasksButtonBig.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/victoryScreen.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/menu/woodPanelBig.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreature.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreaturePortrait.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/Cat1.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/catPortrait.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/dinasaur.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/dinoPortrait.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/drogo.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/drogoPortrait.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/FishKing.png</File>
-    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/FishKingPortrait.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/armorBreakSkill.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/armorPenitrationSkill.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/dmgBonusIcon.png</File>
@@ -124,23 +127,6 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopItemsBackground.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

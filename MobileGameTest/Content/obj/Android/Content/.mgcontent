@@ -33,11 +33,14 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/deck3.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/deckButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/downButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/inputButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/leftArrow64.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/next_move_btn_txtr.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/progressButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/rightArrow64.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shop.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shopItemsButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shopSkinsButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/tasksButton2.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/upButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/upgradeButton.png</File>
@@ -123,6 +126,9 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/TalantIcons/swordSwingIconBigSaturated1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

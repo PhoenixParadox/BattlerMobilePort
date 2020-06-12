@@ -356,6 +356,18 @@
 /processorParam:TextureFormat=Color
 /build:buttons/downButton.png
 
+#begin buttons/inputButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:buttons/inputButton.png
+
 #begin buttons/leftArrow64.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -415,6 +427,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:buttons/shop.png
+
+#begin buttons/shopItemsButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:buttons/shopItemsButton.png
+
+#begin buttons/shopSkinsButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:buttons/shopSkinsButton.png
 
 #begin buttons/tasksButton2.png
 /importer:TextureImporter

@@ -172,9 +172,9 @@ namespace MobileGameTest.Battle
                 game.spriteBatch.DrawString(DataManager.Instance.menuFont, Player1.Instance.HP.ToString(), new Vector2(580, 540), Color.OrangeRed);
                 game.spriteBatch.DrawString(DataManager.Instance.menuFont, Player1.Instance.DEF.ToString(), new Vector2(680, 540), Color.DeepSkyBlue);
 
-                enm.sprite.Position = new Vector2(50, 150);
+                enm.sprite.Position = new Vector2(50, 100);
                 enm.sprite.scale = 0.8f;
-                enm.sprite.spriteEffects = SpriteEffects.FlipHorizontally;
+                enm.sprite.spriteEffects = SpriteEffects.None;
                 enm.Draw(game.spriteBatch);
                 game.spriteBatch.Draw(DataManager.Instance.healthPanel, new Vector2(50, 350));
                 game.spriteBatch.DrawString(DataManager.Instance.menuFont, enm.HP.ToString(), new Vector2(110, 370), Color.OrangeRed);
@@ -365,8 +365,8 @@ namespace MobileGameTest.Battle
                 g.spriteBatch.Draw(DataManager.Instance.menuLowerPanel, new Vector2(-50, 950));
                 g.spriteBatch.Draw(DataManager.Instance.portraitPanel, new Vector2(-30, -110));
 
-                enm.portraitSprite.Position = new Vector2(0, 60);
-                enm.portraitSprite.scale = 1f;
+                enm.portraitSprite.Position = new Vector2(0, 20);
+                enm.portraitSprite.scale = 0.9f;
                 enm.portraitSprite.spriteEffects = SpriteEffects.None;
                 enm.portraitSprite.Draw(g.spriteBatch);
 
@@ -527,12 +527,13 @@ namespace MobileGameTest.Battle
             public override void Initialize(Game game)
             {
                 this.game = game as Game1;
-                enmPosition = new Vector2(400, 100);
+                enmPosition = new Vector2(400, 50);
                 plrPosition = new Vector2(-20, 750);
                 ChainBattleState.Instance.plr.sprite.Position = plrPosition;
                 ChainBattleState.Instance.plr.sprite.scale = 1.2f;
                 ChainBattleState.Instance.enm.sprite.scale = 1.2f;
                 ChainBattleState.Instance.enm.sprite.Position = enmPosition;
+                ChainBattleState.Instance.enm.sprite.spriteEffects = SpriteEffects.FlipHorizontally;
             }
 
             public override void Unload()

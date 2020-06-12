@@ -511,6 +511,8 @@ namespace MobileGameTest.Data
         public Texture2D deck1Btn;
         public Texture2D deck2Btn;
         public Texture2D deck3Btn;
+
+        public Texture2D inputButton;
         #endregion
 
         #region icons
@@ -523,6 +525,9 @@ namespace MobileGameTest.Data
         #region shop
         public Texture2D shopBackground;
         public Texture2D shopItemsBackground;
+
+        public Texture2D shopItemsButton;
+        public Texture2D shopSkinsButton;
         #endregion
 
         #region loading screen
@@ -651,6 +656,8 @@ namespace MobileGameTest.Data
             deck1Btn = contentManager.Load<Texture2D>("buttons/deck1");
             deck2Btn = contentManager.Load<Texture2D>("buttons/deck2");
             deck3Btn = contentManager.Load<Texture2D>("buttons/deck3");
+
+            inputButton = contentManager.Load<Texture2D>("buttons/inputButton");
             #endregion
 
             #region icons
@@ -662,6 +669,9 @@ namespace MobileGameTest.Data
             #region shop
             shopBackground = contentManager.Load<Texture2D>("shop/shopBackgroundNew");
             shopItemsBackground = contentManager.Load<Texture2D>("common/woodenPanel");
+
+            shopItemsButton = contentManager.Load<Texture2D>("buttons/shopItemsButton");
+            shopSkinsButton = contentManager.Load<Texture2D>("buttons/shopSkinsButton");
             #endregion
 
             #region battle components

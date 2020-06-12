@@ -8,6 +8,7 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -76,6 +77,8 @@ namespace MobileGameTest.PlayerInfo
         private TouchButton saveCurrentDeck;
 
         private TouchButton exitBtn;
+        private TouchButton inputButton;
+        private bool keyboradDisplayed;
 
         private PlayerInfoScreen()
         {
@@ -94,6 +97,9 @@ namespace MobileGameTest.PlayerInfo
             progressBar.currentGoal = GameData.Instance.currentGoal;
             goalButton = new TouchButton(new Vector2(570, 960), DataManager.Instance.goalButton);
             goalButton.Click += goalClick;
+
+            inputButton = new TouchButton(new Vector2(610, 220), DataManager.Instance.inputButton);
+            inputButton.Click += ShowKeyboard;
 
             tabs = new TouchButton[3];
             tabs[0] = new TouchButton(new Vector2(10, 660), DataManager.Instance.progressButton);
@@ -134,6 +140,24 @@ namespace MobileGameTest.PlayerInfo
 
             saveCurrentDeck = new TouchButton(new Vector2(100, 100), DataManager.Instance.woodenBtn);
             saveCurrentDeck.Click += SaveDeck;
+        }
+
+        private void ShowKeyboard(object sender, EventArgs e)
+        {
+            var pView = game.Services.GetService<View>();
+            if (!keyboradDisplayed)
+            {
+                var inputMethodManager = game.gameActivity.Application.GetSystemService(Context.InputMethodService) as InputMethodManager;
+                inputMethodManager.ShowSoftInput(pView, ShowFlags.Forced);
+                inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
+                keyboradDisplayed = true;
+            }
+            else
+            {
+                InputMethodManager inputMethodManager = game.gameActivity.Application.GetSystemService(Context.InputMethodService) as InputMethodManager;
+                inputMethodManager.HideSoftInputFromWindow(pView.WindowToken, HideSoftInputFlags.None);
+                keyboradDisplayed = false;
+            }
         }
 
         private void SaveDeck(object sender, EventArgs e)
@@ -179,6 +203,7 @@ namespace MobileGameTest.PlayerInfo
                     game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.points.ToString(), new Vector2(370, 480), Color.White);
                     game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, Player1.Instance.trophies.ToString(), new Vector2(530, 480), Color.White);
                     Player1.Instance.sprite.Draw(game.spriteBatch);
+                    inputButton.Draw(game.spriteBatch);
 
                     foreach (var e in components)
                         e.Draw(game.spriteBatch);
@@ -407,6 +432,9 @@ namespace MobileGameTest.PlayerInfo
             }
             if (activeTab == PlayerInfoTabs.Progress)
             {
+                inputButton.Update(gameTime);
+                if (keyboradDisplayed)
+                    return;
                 foreach (var e in components)
                     e.Update(gameTime);
                 goalButton.Update(gameTime);

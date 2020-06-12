@@ -62,8 +62,8 @@ namespace MobileGameTest.Shop
             toRemove = new List<InvisibleButton>();
 
             tabs = new TouchButton[2];
-            tabs[0] = new TouchButton(new Vector2(90, 540), DataManager.Instance.woodenBtn);
-            tabs[1] = new TouchButton(new Vector2(90 + 60 + DataManager.Instance.woodenBtn.Width, 540), DataManager.Instance.woodenBtn);
+            tabs[0] = new TouchButton(new Vector2(100, 540), DataManager.Instance.shopItemsButton);
+            tabs[1] = new TouchButton(new Vector2(450, 540), DataManager.Instance.shopSkinsButton);
             tabs[0].Click = (object sender, EventArgs e) => this.activeTab = ShopTabs.Items;
             tabs[1].Click = (object sender, EventArgs e) => this.activeTab = ShopTabs.Skins;
             if (items != null)
@@ -86,6 +86,7 @@ namespace MobileGameTest.Shop
             game.spriteBatch.DrawString(DataManager.Instance.menuFont, Player1.Instance.points.ToString(), new Vector2(5, 30), Color.LightGoldenrodYellow);
             foreach (var c in components)
                 c.Draw(game.spriteBatch);
+            game.spriteBatch.Draw(DataManager.Instance.lowerPanelBorder, new Vector2(-20, 600));
             foreach (var t in tabs)
             {
                 t.Draw(game.spriteBatch);
@@ -139,7 +140,7 @@ namespace MobileGameTest.Shop
         private void MakeItemButtons()
         {
             SellItemButtons = new InvisibleButton[items.Where(i => i.type != ItemType.Skin).Count()];
-            var pos = new Vector2(30, 440);
+            var pos = new Vector2(30, 640);
             var ind = 0;
             foreach (var i in items.Where(i => i.type != ItemType.Skin))
             {

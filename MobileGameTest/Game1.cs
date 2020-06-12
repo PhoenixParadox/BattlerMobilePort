@@ -10,11 +10,15 @@ namespace MobileGameTest
 {
     public class Game1 : Game
     {
+        public Activity1 gameActivity;
+
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
         // текущее состояние игры
         public GameState currentState;
+
+        public double _inputTimer;
 
         public Game1()
         {
@@ -48,6 +52,9 @@ namespace MobileGameTest
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 Exit();
 
+            _inputTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (_inputTimer > 1000000)
+                _inputTimer = 0;
             currentState.Update(gameTime);
             base.Update(gameTime);
         }
