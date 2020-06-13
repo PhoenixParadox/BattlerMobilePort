@@ -111,7 +111,7 @@ namespace MobileGameTest.Education
                 };
             }
             task.isGenerated = true;
-            task.points = 40;
+            task.points = 50;
             task.type = TaskType.Calc;
             task.generatedType = GeneratedTaskType.Sum;
             task.answer = task.solution(task.parameters[0], task.parameters[1], task.parameters[2], task.parameters[3]).ToString();
@@ -125,7 +125,7 @@ namespace MobileGameTest.Education
             task.parameters = new int[4] { rnd.Next(1, 10), rnd.Next(1, 3), rnd.Next(1, 100), rnd.Next(1, 10) };
             if (task.parameters[0] * task.parameters[3] > task.parameters[2])
             {
-                task.description = $"Турист идет по шоссе со скоростью {task.parameters[0]} км/ч.\n(Движется в сторону увеличения км. на столбах)\nСейчас он находится у километрового столба\nс отметкой {task.parameters[2]} км.\nУ столба с какой отметкой он будет через {task.parameters[3]} часа ? ";
+                task.description = $"Турист идет по шоссе со скоростью {task.parameters[0]} км/ч.\n(Движется в сторону увеличения км на столбах)\nСейчас он находится у километрового столба\nс отметкой {task.parameters[2]} км.\nУ столба с какой отметкой он будет через {task.parameters[3]} ч ? ";
                 task.solution = (p1, p2, p3, p4) =>
                 {
                     return p1 * p4 + p3;
@@ -135,11 +135,11 @@ namespace MobileGameTest.Education
             {
                 if (task.parameters[1] > 1)
                 {
-                    task.description = $"Турист идет по шоссе со скоростью {task.parameters[0]} км/ч.\n(Движется в сторону увеличения км. на столбах)\nСейчас он находится у километрового столба\nс отметкой {task.parameters[2]} км.\nУ столба с какой отметкой он будет через {task.parameters[3]} часа ? ";
+                    task.description = $"Турист идет по шоссе со скоростью {task.parameters[0]} км/ч.\n(Движется в сторону увеличения км на столбах)\nСейчас он находится у километрового столба\nс отметкой {task.parameters[2]} км.\nУ столба с какой отметкой он будет через {task.parameters[3]} ч ? ";
                 }
                 else
                 {
-                    task.description = $"Турист идет по шоссе со скоростью {task.parameters[0]} км/ч.\n(Движется в сторону уменьшения км. на столбах)\nСейчас он находится у километрового столба\nс отметкой {task.parameters[2]} км.\nУ столба с какой отметкой он будет через {task.parameters[3]} часа ? ";
+                    task.description = $"Турист идет по шоссе со скоростью {task.parameters[0]} км/ч.\n(Движется в сторону уменьшения км на столбах)\nСейчас он находится у километрового столба\nс отметкой {task.parameters[2]} км.\nУ столба с какой отметкой он будет через {task.parameters[3]} ч ? ";
                 }
                 task.solution = (p1, p2, p3, p4) =>
                 {
@@ -162,7 +162,7 @@ namespace MobileGameTest.Education
             switch (task.parameters[1])
             {
                 case (1):
-                    task.description += "сумму старшего и младшего разрядов.";
+                    task.description += "сумму старшего и\nмладшего разрядов.";
                     task.solution = (p1, p2, p3, p4) => p1 % 10 + p1 / 100000;
                     break;
                 case (2):
@@ -170,11 +170,11 @@ namespace MobileGameTest.Education
                     task.solution = (p1, p2, p3, p4) => (p1 / 100) % 10 + (p1 / 100000) % 10;
                     break;
                 case (3):
-                    task.description += "произведение второго и четвертого разрядов.";
+                    task.description += "произведение второго и\nчетвертого разрядов.";
                     task.solution = (p1, p2, p3, p4) => ((p1 / 10) % 10) * ((p1 / 1000) % 10);
                     break;
                 case (4):
-                    task.description += "произведение третьего и старшего разряда";
+                    task.description += "произведение третьего и\nстаршего разряда";
                     task.solution = (p1, p2, p3, p4) => (p1 / 100000) * ((p1 / 100) % 10);
                     break;                        
             }

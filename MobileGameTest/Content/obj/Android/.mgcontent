@@ -4,11 +4,24 @@
   <Platform>Android</Platform>
   <Config />
   <SourceFiles>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/tutorial/tutorial1.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/tutorial/tutorial2.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/checkAnswerBtn.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/incorrectIcon.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/inputAnswerBtn.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/leftArrow.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/redoButton.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/rightArrow.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/taskNameFrame.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/textBox1.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTask1.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTask2.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTask3.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/calcTasksFrame.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/correctIcon.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/Fantasy-library-art.jpg</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/generatedicon.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/infoButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/level1.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/level1Topic.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/mathTask1.png</File>
@@ -23,6 +36,7 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTask4.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTask5.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/theoryTasksFrame.png</File>
+    <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/education/solveTaskScreen/SquareBtn145x145.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/inputButton.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreature.png</File>
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/Player/blueFluffyCreaturePortrait.png</File>
@@ -146,23 +160,6 @@
     <File>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/shop/shopItemsBackground.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

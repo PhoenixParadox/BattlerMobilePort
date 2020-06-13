@@ -45,11 +45,14 @@ namespace MobileGameTest.Education
         private void Load()
         {
             components = new List<TouchButton>();
-            components.Add(new TouchButton(new Vector2(640, 20), DataManager.Instance.exitBtnTxtr) { Click = BackToLevel });
-            inputButton = new TouchButton(new Vector2(300, 100), DataManager.Instance.inputButton) { Click = GetAnswer };
+            components.Add(new TouchButton(new Vector2(700, 70), DataManager.Instance.exitBtnTxtr) { Click = BackToLevel });
+            inputButton = new TouchButton(new Vector2(580, 455), DataManager.Instance.inputButton) { Click = GetAnswer };
             components.Add(inputButton);
-            components.Add(new TouchButton(new Vector2(50, 400), DataManager.Instance.putLinkButton) { Click = CheckAnswer });
-            components.Add(new TouchButton(new Vector2(400, 100), DataManager.Instance.putLinkButton) { Click = RedoTask });
+            components.Add(new TouchButton(new Vector2(420, 800), DataManager.Instance.checkAnswerBtn) { Click = CheckAnswer });
+            components.Add(new TouchButton(new Vector2(600, 800), DataManager.Instance.redoTaskBtn) { Click = RedoTask });
+
+            components.Add(new TouchButton(new Vector2(550, 1100), DataManager.Instance.nextTaskBtn) { Click = NextTask });
+            components.Add(new TouchButton(new Vector2(70, 1100), DataManager.Instance.prevTaskBtn) { Click = PrevTask });
         }
 
         public override void Unload()
@@ -71,7 +74,10 @@ namespace MobileGameTest.Education
 
         public override void Initialize(Game game)
         {
-            this.game = game as Game1;
+            if (this.game == null)
+            {
+                this.game = game as Game1;
+            }
             if (task.isSolved)
             {
                 playerAnswer = task.answer;
@@ -101,17 +107,37 @@ namespace MobileGameTest.Education
         public override void Draw(GameTime gameTime)
         {
             game.GraphicsDevice.Clear(Color.Violet);
-            game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, task.description, new Vector2(100, 300), Color.Yellow);
+            game.spriteBatch.Draw(DataManager.Instance.educationBackground, new Vector2(0));
+            game.spriteBatch.Draw(DataManager.Instance.menuLowerPanel, new Vector2(-50, 50));
 
-            game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, playerAnswer, new Vector2(100, 100), Color.Black);
+            game.spriteBatch.Draw(DataManager.Instance.taskNameFrame, new Vector2(180, 10));
+            game.spriteBatch.DrawString(DataManager.Instance.battleTitleFont, StartEducationalScreen.Instance.lastTaskName, new Vector2(265, 5), Color.White);
+
+            game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, task.description, new Vector2(10, 120), Color.White);
+            game.spriteBatch.Draw(DataManager.Instance.textBox, new Vector2(270, 450));
+            game.spriteBatch.DrawString(DataManager.Instance.battleTitleFont, "ОТВЕТ:", new Vector2(60, 460), Color.White);
+            game.spriteBatch.DrawString(DataManager.Instance.battleTitleFont, playerAnswer, new Vector2(290, 460), Color.Brown);
+
+            game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, "СТАТУС:", new Vector2(30, 590), Color.White);
 
             if (answerState == AnswerState.Right)
             {
-                game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, "ВЕРНО", new Vector2(100, 50), Color.Green);
+                game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, "ВЕРНО", new Vector2(220, 590), Color.Green);
+                game.spriteBatch.Draw(DataManager.Instance.correctIcon, new Vector2(350, 570));
             }
             else if (answerState == AnswerState.Wrong)
             {
-                game.spriteBatch.DrawString(DataManager.Instance.localizedMenuFont, "НЕВЕРНО", new Vector2(100, 50), Color.Red);
+                game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, "НЕВЕРНО", new Vector2(220, 590), Color.Red);
+                game.spriteBatch.Draw(DataManager.Instance.incorrectIcon, new Vector2(400, 580));
+            }
+            else
+            {
+                game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, "НЕ РЕШЕНО", new Vector2(220, 590), Color.AliceBlue);
+            }
+            if (!task.isSolved)
+            {
+                game.spriteBatch.DrawString(DataManager.Instance.goalDescriptionFont, $"ТЫ ПОЛУЧИШЬ:\n{task.points}", new Vector2(20, 780), Color.Yellow);
+                game.spriteBatch.Draw(DataManager.Instance.coinIcon, new Vector2(70, 810), scale: new Vector2(0.7f));
             }
 
             foreach (var c in components)
@@ -153,7 +179,7 @@ namespace MobileGameTest.Education
                 inputMethodManager.HideSoftInputFromWindow(pView.WindowToken, HideSoftInputFlags.None);
                 keyboradDisplayed = false;
             }
-            if (answerState != AnswerState.Undefined)
+            if (task.isSolved)
                 return;
             answerState = (playerAnswer == task.answer) ? AnswerState.Right : AnswerState.Wrong;
             task.isSolved = answerState == AnswerState.Right;
@@ -172,7 +198,7 @@ namespace MobileGameTest.Education
                 inputMethodManager.HideSoftInputFromWindow(pView.WindowToken, HideSoftInputFlags.None);
                 keyboradDisplayed = false;
             }
-            if (answerState != AnswerState.Undefined)
+            if (task.isSolved)
                 return;
 
             answerState = (playerAnswer == task.answer) ? AnswerState.Right : AnswerState.Wrong;
@@ -186,17 +212,27 @@ namespace MobileGameTest.Education
 
         private void RedoTask(object sender, EventArgs e)
         {
-            if (task.isGenerated)
+            if (answerState == AnswerState.Wrong)
+            {
+                playerAnswer = "";
+                answerState = AnswerState.Undefined;
+            }
+            else if (task.isGenerated)
             {
                 task = Task.Generate(task.generatedType);
                 playerAnswer = "";
                 answerState = AnswerState.Undefined;
             }
-            else if(answerState == AnswerState.Wrong)
-            {
-                playerAnswer = "";
-                answerState = AnswerState.Undefined;
-            }
+        }
+
+        private void NextTask(object sender, EventArgs e)
+        {
+            StartEducationalScreen.Instance.GoToNextTask();
+        }
+
+        private void PrevTask(object sender, EventArgs e)
+        {
+            StartEducationalScreen.Instance.GoToPrevTask();
         }
     }
 }

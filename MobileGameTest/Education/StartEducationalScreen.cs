@@ -27,6 +27,18 @@ namespace MobileGameTest.Education
         private TouchButton[] theoryTasksBtns;
         private TouchButton[] mathTasksBtns;
         private TouchButton[] calcTasksBtns;
+
+        private int lastTaskInd;
+        private Task lastTask;
+        public string lastTaskName
+        {
+            get
+            {
+                var str = (lastTask.type == TaskType.Theory) ? "Задание " : (lastTask.type == TaskType.Math) ? "Задача " : "Пример ";
+                str += (lastTaskInd + 1);
+                return str;
+            }
+        }
         #endregion
 
         #region creation
@@ -50,8 +62,9 @@ namespace MobileGameTest.Education
         private void Load()
         {
             components = new List<TouchButton>();
-            components.Add(new TouchButton(new Vector2(680, 10), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu });
+            components.Add(new TouchButton(new Vector2(700, 10), DataManager.Instance.exitBtnTxtr) { Click = BackToMenu });
             components.Add(new TouchButton(new Vector2(260, 140), DataManager.Instance.scroll) { Click = ShowTheory });
+            components.Add(new TouchButton(new Vector2(20, 20), DataManager.Instance.infoIcon) { Click = ShowInfo });
         }
 
         public override void Unload()
@@ -89,6 +102,47 @@ namespace MobileGameTest.Education
             foreach (var c in components)
             {
                 c.Draw(game.spriteBatch);
+            }
+
+            var pos = new Vector2(280, 390);
+            var lvl = EducationData.Instance.CurrentLevel;
+            for (int i = 0; i < theoryTasksBtns.Length; i++)
+            {
+                if (lvl.TheoryTasks[i].isSolved)
+                {
+                    game.spriteBatch.Draw(DataManager.Instance.correctIcon, new Vector2(pos.X + 220, pos.Y - 10));
+                }
+                if (lvl.TheoryTasks[i].isGenerated)
+                {
+                    game.spriteBatch.Draw(DataManager.Instance.redoIcon, new Vector2(pos.X - 70, pos.Y - 5));
+                }
+                pos.Y += 60;
+            }
+            var pos1 = new Vector2(280, 830);
+            for (int i = 0; i < mathTasksBtns.Length; i++)
+            {
+                if (lvl.MathTasks[i].isSolved)
+                {
+                    game.spriteBatch.Draw(DataManager.Instance.correctIcon, new Vector2(pos1.X + 220, pos1.Y - 10));
+                }
+                if (lvl.MathTasks[i].isGenerated)
+                {
+                    game.spriteBatch.Draw(DataManager.Instance.redoIcon, new Vector2(pos1.X - 70, pos1.Y - 5));
+                }
+                pos1.Y += 60;
+            }
+            var pos2 = new Vector2(280, 1050);
+            for (int i = 0; i < calcTasksBtns.Length; i++)
+            {
+                if (lvl.CalculationTasks[i].isSolved)
+                {
+                    game.spriteBatch.Draw(DataManager.Instance.correctIcon, new Vector2(pos2.X + 220, pos2.Y - 10));
+                }
+                if (lvl.CalculationTasks[i].isGenerated)
+                {
+                    game.spriteBatch.Draw(DataManager.Instance.redoIcon, new Vector2(pos2.X - 70, pos2.Y - 5));
+                }
+                pos2.Y += 60;
             }
         }
 
@@ -144,8 +198,9 @@ namespace MobileGameTest.Education
                         break;
                     }
                 }
+                lastTaskInd = ind;
                 CurrentTaskScreen.Instance.task = EducationData.Instance.CurrentLevel.TheoryTasks[ind];
-                game.SwitchState(CurrentTaskScreen.Instance);
+                //game.SwitchState(CurrentTaskScreen.Instance);
             }
             else if (mathTasksBtns.Contains(btn))
             {
@@ -158,8 +213,9 @@ namespace MobileGameTest.Education
                         break;
                     }
                 }
+                lastTaskInd = ind;
                 CurrentTaskScreen.Instance.task = EducationData.Instance.CurrentLevel.MathTasks[ind];
-                game.SwitchState(CurrentTaskScreen.Instance);
+                //game.SwitchState(CurrentTaskScreen.Instance);
             }
             else if (calcTasksBtns.Contains(btn))
             {
@@ -172,9 +228,109 @@ namespace MobileGameTest.Education
                         break;
                     }
                 }
+                lastTaskInd = ind;
                 CurrentTaskScreen.Instance.task = EducationData.Instance.CurrentLevel.CalculationTasks[ind];
-                game.SwitchState(CurrentTaskScreen.Instance);
             }
+            lastTask = CurrentTaskScreen.Instance.task;
+            game.SwitchState(CurrentTaskScreen.Instance);
+        }
+
+        public void GoToNextTask()
+        {
+            var lvl = EducationData.Instance.CurrentLevel;
+            switch (lastTask.type)
+            {
+                case (TaskType.Theory):
+                    if (lastTaskInd == lvl.TheoryTasks.Count - 1)
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.MathTasks[0];
+                        lastTaskInd = 0;
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    else
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.TheoryTasks[++lastTaskInd];
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    break;
+                case (TaskType.Math):
+                    if (lastTaskInd == lvl.MathTasks.Count - 1)
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.CalculationTasks[0];
+                        lastTaskInd = 0;
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    else
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.MathTasks[++lastTaskInd];
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    break;
+                case (TaskType.Calc):
+                    if (lastTaskInd == lvl.CalculationTasks.Count - 1)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.CalculationTasks[++lastTaskInd];
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    break;
+            }
+            CurrentTaskScreen.Instance.Initialize(game);
+        }
+
+        public void GoToPrevTask()
+        {
+            var lvl = EducationData.Instance.CurrentLevel;
+            switch (lastTask.type)
+            {
+                case (TaskType.Theory):
+                    if (lastTaskInd == 0)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.TheoryTasks[--lastTaskInd];
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    break;
+                case (TaskType.Math):
+                    if (lastTaskInd == 0)
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.TheoryTasks[lvl.TheoryTasks.Count - 1];
+                        lastTaskInd = lvl.TheoryTasks.Count - 1;
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    else
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.MathTasks[--lastTaskInd];
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    break;
+                case (TaskType.Calc):
+                    if (lastTaskInd == 0)
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.MathTasks[lvl.MathTasks.Count - 1];
+                        lastTaskInd = lvl.MathTasks.Count - 1;
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    else
+                    {
+                        CurrentTaskScreen.Instance.task = lvl.CalculationTasks[--lastTaskInd];
+                        lastTask = CurrentTaskScreen.Instance.task;
+                    }
+                    break;
+            }
+            CurrentTaskScreen.Instance.Initialize(game);
+        }
+
+
+        private void ShowInfo(object sender, EventArgs e)
+        {
+            game.SwitchState(EducationInfoScreen.Instance);
         }
     }
 }

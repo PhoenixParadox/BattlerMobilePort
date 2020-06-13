@@ -77,7 +77,7 @@ namespace MobileGameTest.Data
         public void CreatePlayerData()
         {
             PlayerData.Instance.Name = "nickname";
-            PlayerData.Instance.points =  100000;
+            PlayerData.Instance.points =  10000;
             PlayerData.Instance.trophies = 0;
             PlayerData.Instance.maxUnlockedSkin = 0;
             PlayerData.Instance.currentSkin = 0;
@@ -569,6 +569,26 @@ namespace MobileGameTest.Data
         public Texture2D theoryTasksFrame;
         public Texture2D mathTasksFrame;
         public Texture2D calcTasksFrame;
+
+        public Texture2D correctIcon;
+        public Texture2D redoIcon;
+        public Texture2D infoIcon;
+
+        #region solve task Screen
+        public Texture2D inputAnswerBtn;
+        public Texture2D checkAnswerBtn;
+        public Texture2D redoTaskBtn;
+        public Texture2D textBox;
+
+        public Texture2D nextTaskBtn;
+        public Texture2D prevTaskBtn;
+        public Texture2D taskNameFrame;
+        public Texture2D incorrectIcon;
+        #endregion
+
+        #region tutorial
+        public List<Texture2D> tutorialPages;
+        #endregion
         #endregion
 
         private void LoadAssets()
@@ -749,6 +769,28 @@ namespace MobileGameTest.Data
             theoryTasksFrame = contentManager.Load<Texture2D>("education/theoryTasksFrame");
             mathTasksFrame = contentManager.Load<Texture2D>("education/mathTasksFrame");
             calcTasksFrame = contentManager.Load<Texture2D>("education/calcTasksFrame");
+
+            correctIcon = contentManager.Load<Texture2D>("education/correctIcon");
+            redoIcon = contentManager.Load<Texture2D>("education/generatedicon");
+            infoIcon = contentManager.Load<Texture2D>("education/infoButton");
+
+            #region solve task screen
+            checkAnswerBtn = contentManager.Load<Texture2D>("education/solveTaskScreen/checkAnswerBtn");
+            inputAnswerBtn = contentManager.Load<Texture2D>("education/solveTaskScreen/inputAnswerBtn");
+            redoTaskBtn = contentManager.Load<Texture2D>("education/solveTaskScreen/redoButton");
+            textBox = contentManager.Load<Texture2D>("education/solveTaskScreen/textBox1");
+
+            nextTaskBtn = contentManager.Load<Texture2D>("education/solveTaskScreen/rightArrow");
+            prevTaskBtn = contentManager.Load<Texture2D>("education/solveTaskScreen/leftArrow");
+            taskNameFrame = contentManager.Load<Texture2D>("education/solveTaskScreen/taskNameFrame");
+            incorrectIcon = contentManager.Load<Texture2D>("education/solveTaskScreen/incorrectIcon");
+            #endregion
+
+            #region tutorial
+            tutorialPages = new List<Texture2D>();
+            tutorialPages.Add(contentManager.Load<Texture2D>("education/tutorial/tutorial1"));
+            tutorialPages.Add(contentManager.Load<Texture2D>("education/tutorial/tutorial2"));
+            #endregion
 
             #endregion
 

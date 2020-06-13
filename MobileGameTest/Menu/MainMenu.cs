@@ -72,9 +72,7 @@ namespace MobileGameTest.Menu
             components.Add(new TouchButton(new Vector2(190, 830), DataManager.Instance.tasksButtonTxtr) { Click = SwitchToEducation });
             components.Add(new TouchButton(new Vector2(680, 20), DataManager.Instance.exitBtnTxtr) { Click = CloseGame });
             components.Add(new TouchButton(new Vector2(550, 24), DataManager.Instance.shopIcon) { Click = SwitchToShop });
-            components1.Add(new InvisibleButton(new Rectangle(175, 150,
-                                                 Player1.Instance.sprite.Width,
-                                                 Player1.Instance.sprite.Height))
+            components1.Add(new InvisibleButton(new Rectangle(175, 150, Player1.Instance.sprite.Width, Player1.Instance.sprite.Height))
             { Click = SwitchToPlayerInfo });
         }
 

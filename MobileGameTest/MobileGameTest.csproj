@@ -72,6 +72,7 @@
     <Compile Include="Data\GameData.cs" />
     <Compile Include="Data\PlayerData.cs" />
     <Compile Include="Education\CurrentTaskScreen.cs" />
+    <Compile Include="Education\EducationInfoScreen.cs" />
     <Compile Include="Education\TheoryScreen.cs" />
     <Compile Include="Education\EducationalLevel.cs" />
     <Compile Include="Education\StartEducationalScreen.cs" />

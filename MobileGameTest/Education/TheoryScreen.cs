@@ -40,6 +40,7 @@ namespace MobileGameTest.Education
         {
             components = new List<TouchButton>();
             components.Add(new TouchButton(new Vector2(250, 1100), DataManager.Instance.continueButton) { Click = BackToLevel });
+            components.Add(new TouchButton(new Vector2(700, 150), DataManager.Instance.exitBtnTxtr) { Click = BackToLevel });
         }
 
         public override void Unload()

@@ -42,7 +42,23 @@ namespace MobileGameTest.Data
                 {
                     new Task()
                     {
-                        description = "theory task 1",
+                        description = "Является ли 0 натуральным числом?\n1) Да\n2) Нет\n(Введите номер ответа)",
+                        answer = "2",
+                        isGenerated = false,
+                        type = TaskType.Theory,
+                        points = 30
+                    },
+                    new Task()
+                    {
+                        description = "Какое наибольшее трехзначное\nнатуральное число?",
+                        answer = "999",
+                        isGenerated = false,
+                        type = TaskType.Theory,
+                        points = 30
+                    },
+                    new Task()
+                    {
+                        description = "Какое первое натуральное число?",
                         answer = "1",
                         isGenerated = false,
                         type = TaskType.Theory,
@@ -50,31 +66,19 @@ namespace MobileGameTest.Data
                     },
                     new Task()
                     {
-                        description = "theory task 2",
-                        answer = "1",
+                        description = "Сколько единиц каждого разряда\nсоставляют единицу более старшего разряда?",
+                        answer = "10",
                         isGenerated = false,
-                        type = TaskType.Theory
+                        type = TaskType.Theory,
+                        points = 30
                     },
                     new Task()
                     {
-                        description = "theory task 3",
-                        answer = "1",
+                        description = "Старший разряд это\n1) Самая большая цифра числа\n2) Первая слева цифра числа\n3) Первая справа цифра числа\n4) Количесвто сотен, входящих в число\n(Введите номер ответа)",
+                        answer = "2",
                         isGenerated = false,
-                        type = TaskType.Theory
-                    },
-                    new Task()
-                    {
-                        description = "theory task 4",
-                        answer = "1",
-                        isGenerated = false,
-                        type = TaskType.Theory
-                    },
-                    new Task()
-                    {
-                        description = "theory task 5",
-                        answer = "1",
-                        isGenerated = false,
-                        type = TaskType.Theory
+                        type = TaskType.Theory,
+                        points = 30
                     }
                 },
                 MathTasks = new List<Task>()
@@ -87,17 +91,19 @@ namespace MobileGameTest.Data
                    Task.Generate(GeneratedTaskType.Sum),
                    new Task()
                    {
-                       description = "calc task 2",
-                       answer = "1",
+                       description = "Как цифрами запишется число\nтри миллиона двадцать тысяч три\n1) 320003\n2) 3023000\n3) 3002003\n4) 3020003\n(Введите номер ответа)",
+                       answer = "4",
                        isGenerated = false,
-                       type = TaskType.Calc
+                       type = TaskType.Calc,
+                       points = 50
                    },
                    new Task()
                    {
-                       description = "calc task 3",
-                       answer = "1",
+                       description = "Найдите произведение натуральных чисел\nбольше 3:\n1, 0, 5, 7, 2, 3",
+                       answer = "35",
                        isGenerated = false,
-                       type = TaskType.Calc
+                       type = TaskType.Calc,
+                       points = 50
                    }
                 }
             };

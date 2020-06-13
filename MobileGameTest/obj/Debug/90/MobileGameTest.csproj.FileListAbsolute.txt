@@ -114,3 +114,5 @@ D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\as
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\System.ServiceModel.Internals.pdb
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\System.Xml.Linq.pdb
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\System.Xml.pdb
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\bin\Android\AnyCPU\Debug\MobileGameTest.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\linksrc\MobileGameTest.dll.mdb
