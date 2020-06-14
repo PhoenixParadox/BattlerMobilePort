@@ -1,4 +1,4 @@
-D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\MobileGameTest.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\BattlerMobile.dll
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\Java.Interop.dll
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\Mono.Android.dll
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\MonoGame.Framework.dll

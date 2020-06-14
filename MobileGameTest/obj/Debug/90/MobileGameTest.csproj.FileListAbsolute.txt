@@ -69,8 +69,6 @@ D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\R.txt
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\R.cs.flag
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\MobileGameTest.csproj.CoreCompileInputs.cache
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\MobileGameTest.csproj.CopyComplete
-D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\MobileGameTest.dll
-D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\MobileGameTest.pdb
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\bin\MobileGameTest.MobileGameTest.apk
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\res\values\strings.xml
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\res\drawable\icon.png
@@ -114,5 +112,12 @@ D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\as
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\System.ServiceModel.Internals.pdb
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\System.Xml.Linq.pdb
 D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\System.Xml.pdb
-D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\bin\Android\AnyCPU\Debug\MobileGameTest.dll
-D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\linksrc\MobileGameTest.dll.mdb
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\bin\Android\AnyCPU\Debug\BattlerMobile.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\bin\Android\AnyCPU\Debug\BattlerMobile.pdb
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\BattlerMobile.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\BattlerMobile.pdb
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\linksrc\BattlerMobile.dll.mdb
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\bin\Android\AnyCPU\Debug\BattlerMobile.dll.mdb
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\android\assets\BattlerMobile.dll.mdb
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\bin\Android\AnyCPU\Debug\BattlerMobile.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Debug\90\linksrc\BattlerMobile.dll.mdb

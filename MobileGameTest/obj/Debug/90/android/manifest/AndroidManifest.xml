@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="MobileGameTest.MobileGameTest" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="MobileGameTest.MobileGameTest" android:versionCode="1" android:installLocation="auto" android:versionName="0.5b">
   <!--suppress UsesMinSdkAttributes-->
-  <uses-sdk android:minSdkVersion="26" />
+  <uses-sdk android:minSdkVersion="21" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <application android:label="BattlerMobile" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
-    <activity android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize" android:icon="@drawable/icon" android:label="MobileGameTest" android:launchMode="singleInstance" android:screenOrientation="fullUser" android:theme="@style/Theme.Splash" android:name="md5e0aa8b07c0a625102ae208a6d6b5f230.Activity1">
+    <activity android:alwaysRetainTaskState="true" android:configChanges="keyboard|keyboardHidden|locale|orientation|screenLayout|screenSize" android:icon="@drawable/icon" android:label="MobileGameTest" android:launchMode="singleInstance" android:screenOrientation="fullUser" android:theme="@style/Theme.Splash" android:name="md5bcef7a7f195e656e7e261300e568b2b2.Activity1">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

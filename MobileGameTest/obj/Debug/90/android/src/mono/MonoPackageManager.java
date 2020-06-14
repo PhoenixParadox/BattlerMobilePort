@@ -105,8 +105,8 @@ public class MonoPackageManager {
 
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
-		/* We need to ensure that "MobileGameTest.dll" comes first in this list. */
-		"MobileGameTest.dll",
+		/* We need to ensure that "BattlerMobile.dll" comes first in this list. */
+		"BattlerMobile.dll",
 		"MonoGame.Framework.dll",
 	};
 	public static final String[] Dependencies = new String[]{

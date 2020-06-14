@@ -1,0 +1,8 @@
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\MobileGameTest.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\Java.Interop.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\Mono.Android.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\MonoGame.Framework.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\mscorlib.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\System.Core.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\System.dll
+D:\GitLocalRepositories\BattlerMobilePort\MobileGameTest\obj\Release\90\android\assets\System.Runtime.Serialization.dll

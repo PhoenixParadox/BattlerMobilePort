@@ -57,12 +57,12 @@ namespace MobileGameTest.Data
             #endregion
 
 
-            CreatePlayerData();
-            CreateGameData();
+            //CreatePlayerData();
+            //CreateGameData();
 
             try
             {
-                //Load();
+                Load();
             }
             catch
             {
@@ -220,6 +220,7 @@ namespace MobileGameTest.Data
         }
         private void SavePlayer()
         {
+            PlayerData.Instance.Name = Player1.Instance.name;
             playerEdit.PutString("name", PlayerData.Instance.Name);
             playerEdit.PutInt("points", PlayerData.Instance.points);
             playerEdit.PutInt("trophies", PlayerData.Instance.trophies);
@@ -293,7 +294,7 @@ namespace MobileGameTest.Data
         {
             LoadGame();
             LoadPlayer();
-            PlayerData.Instance.points += 10000;
+            //PlayerData.Instance.points += 10000;
         }
         private void LoadGame()
         {

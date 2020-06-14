@@ -1,3 +1,4 @@
+using Android.Views;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -26,7 +27,13 @@ namespace MobileGameTest
             Content.RootDirectory = "Content";
 
             graphics.IsFullScreen = true;
-            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;            
+            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+
+            var v = (View) this.Services.GetService(typeof(View));
+            
+            graphics.PreferredBackBufferWidth = v.Width;
+            graphics.PreferredBackBufferHeight = v.Height;
+            //graphics.ToggleFullScreen();
         }
 
         protected override void Initialize()
