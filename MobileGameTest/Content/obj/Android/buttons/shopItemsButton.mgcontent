@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/buttons/shopItemsButton.png</SourceFile>
-  <SourceTime>2020-06-12T06:57:32.826074+05:00</SourceTime>
+  <SourceTime>2020-06-15T12:35:52.7963363+05:00</SourceTime>
   <DestFile>D:/GitLocalRepositories/BattlerMobilePort/MobileGameTest/Content/bin/Android/buttons/shopItemsButton.xnb</DestFile>
-  <DestTime>2020-06-12T07:00:36.6505309+05:00</DestTime>
+  <DestTime>2020-06-15T12:36:06.3537527+05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T21:35:54+05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

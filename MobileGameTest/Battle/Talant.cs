@@ -268,7 +268,7 @@ namespace MobileGameTest.Battle
                     action = armorPenitration,
                     txtr = DataManager.Instance.armorPenitrationAtck,
                     description = "КОЛЮЩИЙ УДАР,\n" + $"НАНОСЯЩИЙ {GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG\nИГНОРИРУЕТ БРОНЮ",
-                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG\nСКВОЗЬ БРОНЮ",
+                    shortDescription = $"{GameData.Instance.allTalants[TalantType.ArmorPenitration][0]} DMG\nСКВОЗЬ\nБРОНЮ",
                     multiplicity = GameData.Instance.allTalants[TalantType.ArmorPenitration][1],
                     type = TalantType.ArmorPenitration,
                     name = "ОСТРОЕ ЛЕЗВИЕ"
@@ -300,7 +300,7 @@ namespace MobileGameTest.Battle
                     action = atckBonus,
                     txtr = DataManager.Instance.dmgBonus,
                     description = $"+ {GameData.Instance.allTalants[TalantType.AtckBonus][0]} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
-                    shortDescription = $"+ {GameData.Instance.allTalants[TalantType.AtckBonus][0]} DMG\nК СЛЕДУЮЩЕЙ\nАТАКЕ",
+                    shortDescription = $"+ {GameData.Instance.allTalants[TalantType.AtckBonus][0]} DMG\nК СЛЕД.\nАТАКЕ",
                     multiplicity = GameData.Instance.allTalants[TalantType.AtckBonus][1],
                     type = TalantType.AtckBonus,
                     name = "ПРИЛИВ СИЛ"

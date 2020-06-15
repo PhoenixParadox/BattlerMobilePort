@@ -57,12 +57,12 @@ namespace MobileGameTest.Data
             #endregion
 
 
-            //CreatePlayerData();
-            //CreateGameData();
+            CreatePlayerData();
+            CreateGameData();
 
             try
             {
-                Load();
+                //Load();
             }
             catch
             {
@@ -76,8 +76,8 @@ namespace MobileGameTest.Data
         #region Create New Game Data
         public void CreatePlayerData()
         {
-            PlayerData.Instance.Name = "nickname";
-            PlayerData.Instance.points =  10000;
+            PlayerData.Instance.Name = "apple";
+            PlayerData.Instance.points =  50000;
             PlayerData.Instance.trophies = 0;
             PlayerData.Instance.maxUnlockedSkin = 0;
             PlayerData.Instance.currentSkin = 0;

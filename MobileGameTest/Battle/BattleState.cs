@@ -365,7 +365,7 @@ namespace MobileGameTest.Battle
                 g.spriteBatch.Draw(DataManager.Instance.menuLowerPanel, new Vector2(-50, 950));
                 g.spriteBatch.Draw(DataManager.Instance.portraitPanel, new Vector2(-30, -110));
 
-                enm.portraitSprite.Position = new Vector2(0, 20);
+                enm.portraitSprite.Position = new Vector2(0, 10);
                 enm.portraitSprite.scale = 0.9f;
                 enm.portraitSprite.spriteEffects = SpriteEffects.None;
                 enm.portraitSprite.Draw(g.spriteBatch);
